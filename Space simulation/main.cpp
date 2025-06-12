@@ -28,7 +28,7 @@ int main()
     bodies.push(CelestialBody("Planet1", { 50, 0, 0 }, { 0, 10, 0 }, 1000, 3, RED));
     bodies.push(CelestialBody("Planet2", { -70, 0, 0 }, { 0, -8, 0 }, 150, 4, BLUE));
     bodies.push(CelestialBody("Planet3", { 0, 90, 0 }, { -9, 0, 0 }, 200, 5, ORANGE));
-    bodies.push(CelestialBody("Planet4", { 30, -120, 0 }, { 7, 0, 0 }, 250, 5, PURPLE));
+    bodies.push(CelestialBody("Planet4", { 30, -120, 0 }, { 7, 0, 0 }, 2500, 5, PURPLE));
 
     while (!WindowShouldClose())
     {
