@@ -21,7 +21,7 @@ private:
     float Radius;
     Color Body_Color;
     Dynamic_array<Vector3> Trail;
-    int Max_Trail_Length = 50;
+    int Max_Trail_Length = 500;
 
 public:
 

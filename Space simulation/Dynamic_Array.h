@@ -166,7 +166,7 @@ public:
 	}
 	void delete_at(int index)            // Deletes value at index
 	{
-		if (index <= 0 || index >= len) {
+		if (index < 0 || index >= len) {
 			return;
 		}
 		len--;
