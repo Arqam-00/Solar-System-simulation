@@ -128,12 +128,14 @@
   <ItemGroup>
     <ClCompile Include="Camera_Control.cpp" />
     <ClCompile Include="CelestialBody.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera_Control.h" />
     <ClInclude Include="CelestialBody.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Dynamic_Array.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>

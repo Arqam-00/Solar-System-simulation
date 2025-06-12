@@ -24,7 +24,7 @@ private:
     int Max_Trail_Length = 500;
 
 public:
-
+    friend class Collision;
     CelestialBody()
     {
         Name = "none";
