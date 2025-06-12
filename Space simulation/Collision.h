@@ -5,14 +5,12 @@
 
 class Collision
 {
-
 private:
-    void Merge(CelestialBody& A, CelestialBody& B);
-    void Partial_Merge(CelestialBody& A, CelestialBody& B, float absorb_ratio);
-    void Elastic_Bounce(CelestialBody& A, CelestialBody& B);
+    void Merge(CelestialBody& A, CelestialBody& B, float merge_fraction);
+    void Partial_Merge(CelestialBody& A, CelestialBody& B, float mass_loss_fraction);
+    void Destroy(CelestialBody& A, CelestialBody& B, float destruction_fraction);
 public:
-    void Handle_Collision(CelestialBody& A, CelestialBody& B);
-
+    static void Handle_Collision(CelestialBody& A, CelestialBody& B);
 };
 
 #endif
