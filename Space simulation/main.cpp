@@ -5,6 +5,8 @@
 #include "Dynamic_Array.h"
 #include "CelestialBody.h"
 #include "Camera_Control.h"
+#include "Collision.h"
+
 
 using namespace std;
 
@@ -23,7 +25,7 @@ int main()
     bodies.push(CelestialBody("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 20, YELLOW));
     bodies.push(CelestialBody("Planet1", { 50, 0, 0 }, { 0, 10, 0 }, 1000, 3, RED));
     bodies.push(CelestialBody("Planet2", { -70, 0, 0 }, { 0, -8, 0 }, 150, 4, BLUE));
-    bodies.push(CelestialBody("Planet3", { 0, 90, 0 }, { -9, 0, 0 }, 200, 5, ORANGE));
+    bodies.push(CelestialBody("Planet3", { 0, 90, 0 }, { -9, 0, 0 }, 2000, 5, ORANGE));
     bodies.push(CelestialBody("Planet4", { 30, -120, 0 }, { 7, 0, 0 }, 2500, 5, PURPLE));
 
     while (!WindowShouldClose())
@@ -47,10 +49,29 @@ int main()
                 }
             }
         }
+        Collision C;
 
         for (int i = 0; i < bodies.size(); i++)
         {
             bodies[i].Update_Position(Delta_Time);
+        }
+        for (int i = 0; i < bodies.size(); i++)
+        {
+            for (int j = i + 1; j < bodies.size(); j++)
+            {
+                C.Handle_Collision(bodies[i], bodies[j]);
+            }
+        }
+        for (int i = 0; i < bodies.size(); )
+        {
+            if (bodies[i].Get_Mass() == 0.0f)
+            {
+                bodies.delete_at(i); 
+            }
+            else
+            {
+                i++;
+            }
         }
 
         BeginDrawing();
