@@ -1,45 +1,71 @@
 #include "raylib.h"
 #include "raymath.h"
 #include <iostream>
-using namespace std;
-
+#include "String.h"
+#include "Dynamic_Array.h"
 #include "CelestialBody.h"
-#include "Camera_Control.h"
 
-// Include your String and Dynamic_array here
+using namespace std;
 
 int main()
 {
-    InitWindow(1280, 720, "Gravity Simulation 3D");
+    const int screenWidth = 1200;
+    const int screenHeight = 800;
+
+    InitWindow(screenWidth, screenHeight, "Gravity Simulation - Stable Solar System");
     SetTargetFPS(60);
 
-    Camera_Control Camera;
+    Camera3D camera = { 0 };
+    camera.position = { 0.0f, 50.0f, 200.0f };
+    camera.target = { 0.0f, 0.0f, 0.0f };
+    camera.up = { 0.0f, 1.0f, 0.0f };
+    camera.fovy = 60.0f;
+    camera.projection = CAMERA_PERSPECTIVE;
 
-    Dynamic_array<CelestialBody> Bodies;
+    Dynamic_array<CelestialBody> bodies;
 
-    // Sun
-    Bodies.push(CelestialBody({ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, 10000.0f, 20.0f, YELLOW));
-
-    // Planet
-    Bodies.push(CelestialBody({ 150.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 35.0f }, 10.0f, 8.0f, BLUE));
-
-    float Delta_Time = 0.01f;
+    bodies.push(CelestialBody("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 20, YELLOW));
+    bodies.push(CelestialBody("Planet1", { 50, 0, 0 }, { 0, 10, 0 }, 1000, 3, RED));
+    bodies.push(CelestialBody("Planet2", { -70, 0, 0 }, { 0, -8, 0 }, 150, 4, BLUE));
+    bodies.push(CelestialBody("Planet3", { 0, 90, 0 }, { -9, 0, 0 }, 200, 5, ORANGE));
+    bodies.push(CelestialBody("Planet4", { 30, -120, 0 }, { 7, 0, 0 }, 250, 5, PURPLE));
 
     while (!WindowShouldClose())
     {
-        Camera.Update();
-        Update_Bodies(Bodies, Delta_Time);
+        for (int i = 0; i < bodies.size(); i++)
+        {
+            bodies[i].Reset_Acceleration();
+        }
+
+        for (int i = 0; i < bodies.size(); i++)
+        {
+            for (int j = 0; j < bodies.size(); j++)
+            {
+                if (i != j)
+                {
+                    bodies[i].Compute_Gravity_From(bodies[j]);
+                }
+            }
+        }
+
+        for (int i = 0; i < bodies.size(); i++)
+        {
+            bodies[i].Update_Position(GetFrameTime());
+        }
 
         BeginDrawing();
         ClearBackground(BLACK);
-        BeginMode3D(Camera.Cam);
 
-        for (int i = 0; i < Bodies.size(); i++)
+        BeginMode3D(camera);
+
+        for (int i = 0; i < bodies.size(); i++)
         {
-            DrawSphere(Bodies[i].Pos, Bodies[i].Radius, Bodies[i].Body_Color);
+            bodies[i].Draw_Body();
+            bodies[i].Draw_Trail();
         }
 
         EndMode3D();
+
         DrawFPS(10, 10);
         EndDrawing();
     }

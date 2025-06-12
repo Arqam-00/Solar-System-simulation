@@ -1,10 +1,11 @@
 #include<iostream>
 using namespace std;
-template<class T>
 
 
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
+
+template<class T>
 
 class Dynamic_array {
 private:
@@ -47,12 +48,10 @@ public:
 			this->len = other.len;
 			this->cap = other.cap;
 			this->data = new T[cap];
-			for (int i = 0; i < other.s; i++) {
+			for (int i = 0; i < other.len; i++) {
 				this->data[i] = other.data[i];
 			}
 		}
-		return*this;
-
 	}
 	~Dynamic_array()                          // Destructor
 	{
@@ -66,7 +65,7 @@ public:
 			this->len = other.len;
 			this->cap = other.cap;
 			this->data = new T[cap];
-			for (int i = 0; i < other.s; i++) {
+			for (int i = 0; i < other.len; i++) {
 				this->data[i] = other.data[i];
 			}
 		}
@@ -153,7 +152,6 @@ public:
 	void insert_at(int index, T value) // Inserts value at index
 	{
 		if (index <= 0 || index > len) {
-			cout << "Invalid index";
 			return;
 		}
 		if (len == cap) {
@@ -169,7 +167,6 @@ public:
 	void delete_at(int index)            // Deletes value at index
 	{
 		if (index <= 0 || index >= len) {
-			cout << "Invalid Index";
 			return;
 		}
 		len--;

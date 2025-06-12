@@ -558,12 +558,7 @@ istream& operator >> (istream& is, String& s) {
 	s = String(arr);
 	return is;
 }
-ifstream& operator >> (ifstream& ifs, String& s) {
-	char arr[100]{ '\0' };
-	ifs.getline(arr, 100);
-	s = String(arr);
-	return ifs;
-}
+
 
 String::~String() {
 	delete[] str;

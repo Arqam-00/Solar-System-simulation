@@ -1,6 +1,5 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
 
 #ifndef STRING_H
 #define STRING_H
@@ -60,7 +59,6 @@ public:
 	friend ostream& operator << (ostream& os, const String& s);
 	friend istream& operator >> (istream& is, String& s);
 	void Print();
-	friend ifstream& operator >> (ifstream& ifs, String& s);
 
 	~String();
 };
