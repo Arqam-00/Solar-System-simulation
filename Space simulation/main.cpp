@@ -4,6 +4,7 @@
 #include "String.h"
 #include "Dynamic_Array.h"
 #include "CelestialBody.h"
+#include "Camera_Control.h"
 
 using namespace std;
 
@@ -12,15 +13,10 @@ int main()
     const int screenWidth = 1200;
     const int screenHeight = 800;
 
-    InitWindow(screenWidth, screenHeight, "Gravity Simulation - Stable Solar System");
+    InitWindow(screenWidth, screenHeight, "Gravity Simulation for Stable Solar System");
     SetTargetFPS(60);
 
-    Camera3D camera = { 0 };
-    camera.position = { 0.0f, 50.0f, 200.0f };
-    camera.target = { 0.0f, 0.0f, 0.0f };
-    camera.up = { 0.0f, 1.0f, 0.0f };
-    camera.fovy = 60.0f;
-    camera.projection = CAMERA_PERSPECTIVE;
+    Camera_Control My_Camera; 
 
     Dynamic_array<CelestialBody> bodies;
 
@@ -32,6 +28,10 @@ int main()
 
     while (!WindowShouldClose())
     {
+        float Delta_Time = GetFrameTime();
+
+        My_Camera.Update(Delta_Time);
+
         for (int i = 0; i < bodies.size(); i++)
         {
             bodies[i].Reset_Acceleration();
@@ -50,13 +50,13 @@ int main()
 
         for (int i = 0; i < bodies.size(); i++)
         {
-            bodies[i].Update_Position(GetFrameTime());
+            bodies[i].Update_Position(Delta_Time);
         }
 
         BeginDrawing();
         ClearBackground(BLACK);
 
-        BeginMode3D(camera);
+        BeginMode3D(My_Camera.Get_Camera());
 
         for (int i = 0; i < bodies.size(); i++)
         {
