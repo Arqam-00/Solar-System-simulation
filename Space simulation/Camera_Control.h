@@ -3,6 +3,7 @@
 
 #include "raylib.h"
 #include "raymath.h"
+#include "CelestialBody.h"
 #include <iostream>
 using namespace std;
 
@@ -16,6 +17,7 @@ private:
     float Zoom_Speed = 20.0f;
 
 public:
+
     Camera_Control()
     {
         Cam.position = { 200.0f, 100.0f, 300.0f };
@@ -24,17 +26,41 @@ public:
         Cam.fovy = 90.0f;
         Cam.projection = CAMERA_PERSPECTIVE;
     }
+    void Update_Info(float Delta_Time, Dynamic_array<CelestialBody*>& bodies,CelestialBody*& HoveredBody) {
+        Vector2 mousePosition = GetMousePosition();
+        Ray ray = GetMouseRay(mousePosition, Cam);
+
+        HoveredBody = nullptr;
+
+        for (int i = 0; i < bodies.size(); i++) {
+            CelestialBody* body = bodies[i];
+            float hitDistance = 0.0f;
+            bool hit = GetRayCollisionSphere(ray, body->Get_Position(), body->Get_Radius()).hit;
+
+            if (hit) {
+                HoveredBody = body;
+                break;
+            }
+        }
+    }
+
 
     void Update(float Delta_Time)
     {
         Vector3 Forward = Vector3Normalize(Vector3Subtract(Cam.target, Cam.position));
         Vector3 Right = Vector3Normalize(Vector3CrossProduct(Forward, Cam.up));
+        Vector3 Upward = Vector3Normalize(Vector3CrossProduct(Right, Forward));
+
         Vector3 Move = { 0 };
 
         if (IsKeyDown(KEY_W)) Move = Vector3Add(Move, Vector3Scale(Forward, Move_Speed * Delta_Time*10));
         if (IsKeyDown(KEY_S)) Move = Vector3Add(Move, Vector3Scale(Forward, -Move_Speed * Delta_Time*10));
         if (IsKeyDown(KEY_D)) Move = Vector3Add(Move, Vector3Scale(Right, Move_Speed * Delta_Time*10));
         if (IsKeyDown(KEY_A)) Move = Vector3Add(Move, Vector3Scale(Right, -Move_Speed * Delta_Time*10));
+        if (IsKeyDown(KEY_SPACE)) Move = Vector3Add(Move, Vector3Scale(Upward, Move_Speed * Delta_Time * 10));
+        if (IsKeyDown(KEY_LEFT_SHIFT)) Move = Vector3Add(Move, Vector3Scale(Upward, -Move_Speed * Delta_Time * 10));
+
+
 
         Cam.position = Vector3Add(Cam.position, Move);
         Cam.target = Vector3Add(Cam.target, Move);
