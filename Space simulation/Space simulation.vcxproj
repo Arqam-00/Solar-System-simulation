@@ -129,14 +129,18 @@
     <ClCompile Include="Camera_Control.cpp" />
     <ClCompile Include="CelestialBody.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Dust.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera_Control.h" />
     <ClInclude Include="CelestialBody.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="Dust.h" />
     <ClInclude Include="Dynamic_Array.h" />
+    <ClInclude Include="Meteor.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

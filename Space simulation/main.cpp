@@ -18,7 +18,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "Gravity Simulation for Stable Solar System");
     SetTargetFPS(60);
 
-    Camera_Control My_Camera; 
+    Camera_Control My_Camera;
 
     Dynamic_array<CelestialBody> bodies;
 
@@ -66,7 +66,7 @@ int main()
         {
             if (bodies[i].Get_Mass() == 0.0f)
             {
-                bodies.delete_at(i); 
+                bodies.delete_at(i);
             }
             else
             {

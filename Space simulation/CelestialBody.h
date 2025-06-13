@@ -21,7 +21,7 @@ private:
     float Radius;
     Color Body_Color;
     Dynamic_array<Vector3> Trail;
-    int Max_Trail_Length = 500;
+    int Max_Trail_Length = 50;
 
 public:
     friend class Collision;
@@ -36,7 +36,7 @@ public:
         Body_Color = WHITE;
     }
 
-    CelestialBody(const String n,Vector3 Pos, Vector3 Vel,const float Mass,const float Radius, Color Body_Color)
+    CelestialBody( String n, Vector3 Pos, Vector3 Vel, const float Mass, const float Radius, Color Body_Color)
     {
         this->Name = n;
         this->Pos = Pos;

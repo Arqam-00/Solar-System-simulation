@@ -15,22 +15,22 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B)
     {
         Vector3 Relative_Velocity = Vector3Subtract(A.Vel, B.Vel);
         float Relative_Speed = Vector3Length(Relative_Velocity);
-
+        Collision C;
         float reduced_mass = (A.Mass * B.Mass) / (A.Mass + B.Mass);
         float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
         float binding_energy = (3.0f / 5.0f) * G * (A.Mass * B.Mass) / Radius_Sum;
 
         if (kinetic_energy < 0.5f * binding_energy)
         {
-            Merge(A, B, 1.0f);
+            C.Merge(A, B, 1.0f);
         }
         else if (kinetic_energy < 2.0f * binding_energy)
         {
-            Partial_Merge(A, B, 0.2f);
+            C.Partial_Merge(A, B, 0.2f);
         }
         else
         {
-            Destroy(A, B, 0.4f);
+            C.Destroy(A, B, 0.4f);
         }
     }
 }
