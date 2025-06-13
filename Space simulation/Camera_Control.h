@@ -15,6 +15,7 @@ private:
     float Move_Speed = 10.0f;
     float Rotation_Speed = 0.005f;
     float Zoom_Speed = 20.0f;
+    bool Show_Names = false;
 
 public:
 
@@ -60,7 +61,10 @@ public:
         if (IsKeyDown(KEY_SPACE)) Move = Vector3Add(Move, Vector3Scale(Upward, Move_Speed * Delta_Time * 10));
         if (IsKeyDown(KEY_LEFT_SHIFT)) Move = Vector3Add(Move, Vector3Scale(Upward, -Move_Speed * Delta_Time * 10));
 
-
+        if (IsKeyPressed(KEY_Q))
+        {
+            Show_Names = !Show_Names;
+        }
 
         Cam.position = Vector3Add(Cam.position, Move);
         Cam.target = Vector3Add(Cam.target, Move);
@@ -98,6 +102,10 @@ public:
             else
                 EnableCursor();
         }
+    }
+    bool Is_Showing_Names() const
+    {
+        return Show_Names;
     }
 
     Camera3D Get_Camera() const

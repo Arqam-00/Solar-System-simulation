@@ -23,21 +23,24 @@ int main()
     Collision C;
 
     Dynamic_array<CelestialBody*> bodies;
+    bodies.push(new CelestialBody("Sun", { 90, 0, 0 }, { 0, 0, 3 }, 100000, 30, YELLOW));
+    //bodies.push(new CelestialBody("Sun", { 0, 90, 0 }, { 3, 0, 3 }, 1000, 30, GREEN));
 
-    bodies.push(new CelestialBody("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 20, YELLOW));
+
+    //bodies.push(new CelestialBody("Sun", { 0, 0, 0 }, { 0, 0, 3 }, 1000000, 20, YELLOW));
 
     bodies.push(new CelestialBody("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY));
     bodies.push(new CelestialBody("Venus", { 90, 0, 0 }, { 0, 10.5f, 0 }, 80, 5, ORANGE));
-    bodies.push(new CelestialBody("Earth", { 120, 0, 0 }, { 0, 9.0f, 0 }, 100, 5.5f, BLUE));
-    bodies.push(new CelestialBody("Mars", { 150, 0, 0 }, { 0, 7.8f, 0 }, 60, 4, RED));
+    bodies.push(new CelestialBody("Earth", { 120, 0, 0 }, { 0, 9.3f, 0 }, 190, 5.5f, BLUE));
+    bodies.push(new CelestialBody("Mars", { 150, 0, 0 }, { 0, 7.9f, 0 }, 60, 4, RED));
 
     bodies.push(new CelestialBody("Jupiter", { 250, 0, 0 }, { 0, 6.0f, 0 }, 800, 8, BROWN));
     bodies.push(new CelestialBody("Saturn", { 320, 0, 0 }, { 0, 5.3f, 0 }, 600, 7, BEIGE));
 
-    bodies.push(new CelestialBody("Uranus", { 400, 0, 0 }, { 0, 4.7f, 0 }, 400, 6, SKYBLUE));
+    bodies.push(new CelestialBody("Uranus", { 400, 0, 0 }, { 0, 4.7f, 0 }, 400, 4, SKYBLUE));
     bodies.push(new CelestialBody("Neptune", { 500, 0, 0 }, { 0, 4.0f, 0 }, 350, 6, DARKBLUE));
 
-    bodies.push(new CelestialBody("Moon", { 122, 5, 0 }, { 0, 9.3f, 0 }, 5, 1.5f, LIGHTGRAY));
+    bodies.push(new CelestialBody("Moon", { 110, 0, 0 }, { -0.9, 9.4f, -3.9 }, 05, 1.2f, LIGHTGRAY));
     bodies.push(new CelestialBody("Phobos", { 152, 3, 0 }, { 0, 8.1f, 0 }, 1, 0.8f, DARKGRAY));
     bodies.push(new CelestialBody("Europa", { 252, 6, 0 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY));
 
@@ -83,8 +86,9 @@ int main()
 
         for (int i = 0; i < bodies.size(); i++)
         {
-            for (int j = i + 1; j < bodies.size(); j++)
+            for (int j = i + 1; j < bodies.size() ; j++)
             {
+
                 C.Handle_Collision(*bodies[i], *bodies[j], bodies);
             }
         }
@@ -117,13 +121,25 @@ int main()
             bodies[i]->Draw_Trail();
         }
 
+        
+
+
+        EndMode3D();
+        DrawFPS(10, 10);
         if (HoveredBody != nullptr)
         {
             HoveredBody->Draw_Info_Box();
         }
+        if (My_Camera.Is_Showing_Names())
+        {
+            for (int i = 0; i < bodies.size(); i++)
+            {
+                Vector2 screenPos = GetWorldToScreenEx(bodies[i]->Get_Position(), My_Camera.Get_Camera(), GetScreenWidth(), GetScreenHeight());
+                DrawText(bodies[i]->Get_Name().C_Str(), (int)screenPos.x, (int)screenPos.y, 20, RED);
 
-        EndMode3D();
-        DrawFPS(10, 10);
+
+            }
+        }
         EndDrawing();
     }
 
@@ -136,3 +152,4 @@ int main()
     CloseWindow();
     return 0;
 }
+

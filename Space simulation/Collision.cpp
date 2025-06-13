@@ -21,6 +21,11 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
     float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
     float binding_energy = (3.0f / 5.0f) * G * (A.Get_Mass() * B.Get_Mass()) / Radius_Sum;
 
+   
+    Vector3 impactDirection = Vector3Normalize(Vector3Subtract(B.Get_Position(), A.Get_Position()));
+    A.Apply_Collision_Deformation(kinetic_energy);
+    B.Apply_Collision_Deformation(kinetic_energy);
+
     if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass()*10)
     {
         Merge(A, B, 1.0f,bodies);
@@ -46,7 +51,7 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
 
 void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, Dynamic_array<CelestialBody*>& bodies)
 {
-    cout << "Merge" <<A.Mass<< endl;
+    cout << "Merge" <<A.Name<< endl;
 
     float absorbed_mass = B.Get_Mass() * merge_fraction;
     float total_mass = A.Get_Mass() + absorbed_mass;
@@ -60,6 +65,8 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
     A.Radius = pow(pow(A.Radius, 3) + pow(B.Radius, 3) * merge_fraction, 1.0f / 3.0f);
 
     B.Mass -= absorbed_mass;
+
+
 
     if (B.Mass < 0.05f) {
         B.Mass = 0.0f;
@@ -82,13 +89,14 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
             bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, (A.Get_Mass() * 0001) / (meteor_count * 100), 1.5f, LIGHTGRAY));
         }
     }
-    cout << ":::::::::::" << A.Mass << endl;
+    cout << ":::::::::::" << B.Name << endl;
 
 }
 
 void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
     cout << "Partial merge" << endl;
+    cout << A.Name<<":::::::::::" << B.Name << endl;
 
     if (B.Get_Mass() > A.Get_Mass()) {
         swap(A, B);
@@ -121,14 +129,14 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
     B.Vel = Vector3Add(B.Vel, Vector3Scale(direction, -separation_speed));
 
     int meteor_count = static_cast<int>(mass_loss / 5.0f);
-    if (meteor_count > 10) meteor_count = 10;
+    if (meteor_count > 30) meteor_count = 30;
 
     for (int i = 0; i < meteor_count; i++)
     {
         Vector3 rand_dir = { GetRandomValue(-10, 10), GetRandomValue(-10, 10), GetRandomValue(-10, 10) };
         rand_dir = Vector3Normalize(rand_dir);
         Vector3 spawn_pos = Vector3Add(B.Get_Position(), Vector3Scale(rand_dir, A.Get_Radius() + 2.0f));
-        Vector3 spawn_vel = Vector3Add(B.Get_Velocity(), Vector3Scale(rand_dir, 30.0f));
+        Vector3 spawn_vel = Vector3Add(B.Get_Velocity(), Vector3Scale(rand_dir, 20.0f));
 
         bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, mass_loss / (meteor_count * 100), 1.5f, LIGHTGRAY));
     }
@@ -137,6 +145,7 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
 void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
     cout << "Destroy" << endl;
+    cout << A.Name << ":::::::::::" << B.Name << endl;
 
     A.Mass *= 0.6f;
     B.Mass *= 0.6f;
@@ -161,7 +170,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
         Vector3 rand_dir = { GetRandomValue(-10, 10), GetRandomValue(-10, 10), GetRandomValue(-10, 10) };
         rand_dir = Vector3Normalize(rand_dir);
         Vector3 spawn_pos = Vector3Add(A.Get_Position(), Vector3Scale(rand_dir, A.Get_Radius() + 1.0f));
-        Vector3 spawn_vel = Vector3Add(A.Get_Velocity(), Vector3Scale(rand_dir, 2.0f));
+        Vector3 spawn_vel = Vector3Add(A.Get_Velocity(), Vector3Scale(rand_dir, 10.0f));
 
         bodies.push(new Dust("Dust", spawn_pos, spawn_vel, 0.5f, 0.5f, LIGHTGRAY));
     }
@@ -173,7 +182,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
         Vector3 rand_dir = { GetRandomValue(-10, 10), GetRandomValue(-10, 10), GetRandomValue(-10, 10) };
         rand_dir = Vector3Normalize(rand_dir);
         Vector3 spawn_pos = Vector3Add(B.Get_Position(), Vector3Scale(rand_dir, A.Get_Radius() + 2.0f));
-        Vector3 spawn_vel = Vector3Add(B.Get_Velocity(), Vector3Scale(rand_dir, 30.0f));
+        Vector3 spawn_vel = Vector3Add(B.Get_Velocity(), Vector3Scale(rand_dir, 10.0f));
 
         bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, total_mass / (meteor_count * 100), 1.5f, LIGHTGRAY));
     }

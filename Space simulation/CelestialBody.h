@@ -95,12 +95,14 @@ public:
         }
     }
 
-    void Apply_Collision_Deformation(float impactEnergy, const Vector3& impactDirection) {
-        float deformationFactor = impactEnergy * 0.002f;
-        DeformationAmount = deformationFactor;
-        Pos = Vector3Add(Pos, Vector3Scale(Vector3Normalize(impactDirection), deformationFactor * Radius));
+    void Apply_Collision_Deformation(float impactEnergy)
+    {
+        float DeformationAmount = impactEnergy * 0.0000002f;
+        if (DeformationAmount > 1.0f)
+            DeformationAmount = 1.0f;
 
     }
+
 
 
     void Draw_Body() const {
