@@ -33,8 +33,8 @@ public:
         Pos = { 0.0f, 0.0f, 0.0f };
         Vel = { 0.0f, 0.0f, 0.0f };
         Acc = { 0.0f, 0.0f, 0.0f };
-        Mass = 0.0f;
-        Radius = 0.0f;
+        Mass = 1.0f;
+        Radius = 1.0f;
         StableRadius = Radius;
         Body_Color = WHITE;
     }
@@ -65,12 +65,15 @@ public:
         }
         return *this;
     }
+    virtual ~CelestialBody() {
+        Trail.clear();
+    }
 
     void Reset_Acceleration() {
         Acc = { 0.0f, 0.0f, 0.0f };
     }
 
-    void Compute_Gravity_From(const CelestialBody& Other) {
+    virtual void Compute_Gravity_From(const CelestialBody& Other) {
         Vector3 Direction = Vector3Subtract(Other.Pos, Pos);
         float Distance_Squared = Vector3LengthSqr(Direction) + 0.000001f;
         float Force = (G * Mass * Other.Mass) / Distance_Squared;
@@ -79,7 +82,7 @@ public:
         Acc = Vector3Add(Acc, Acceleration_Contribution);
     }
 
-    void Update_Position(float Delta_Time) {
+    virtual void Update_Position(float Delta_Time) {
         Vel = Vector3Add(Vel, Vector3Scale(Acc, Delta_Time));
         Pos = Vector3Add(Pos, Vector3Scale(Vel, Delta_Time));
 
@@ -105,16 +108,16 @@ public:
 
 
 
-    void Draw_Body() const {
+    virtual void Draw_Body() const {
         DrawSphere(Pos, Radius, Body_Color);
     }
 
     void Draw_Trail() const {
         for (int i = 1; i < Trail.size(); i++) {
             DrawLine3D(Trail[i - 1], Trail[i], Body_Color);
-        }
+         }
     }
-    void Draw_Info_Box() const {
+    virtual void Draw_Info_Box() const {
             Vector2 mousePos = GetMousePosition();
             float boxWidth = 200;
             float boxHeight = 100;
