@@ -135,7 +135,7 @@
     <ClCompile Include="Moon.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="String.cpp" />
-    <ClCompile Include="Sun.cpp" />
+    <ClCompile Include="Star.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera_Control.h" />

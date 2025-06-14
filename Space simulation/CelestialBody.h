@@ -22,7 +22,7 @@ protected:
     float StableRadius;
     Color Body_Color;
     Dynamic_array<Vector3> Trail;
-    int Max_Trail_Length = 5000;
+    int Max_Trail_Length = 50000;
     float DeformationAmount = 0.0f;
 
 public:

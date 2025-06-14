@@ -42,7 +42,7 @@
     <ClCompile Include="Moon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sun.cpp">
+    <ClCompile Include="Star.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

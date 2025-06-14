@@ -43,7 +43,7 @@ int main()
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
 
-    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 20, YELLOW);
+    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 40, YELLOW);
     Stars.push(sun);
 
     Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY);
@@ -64,41 +64,41 @@ int main()
     sun->Add_Planet(uranus);
     sun->Add_Planet(neptune);
 
-    Moon* moon = new Moon("Moon", { 130, 10, 10 }, { 0, 9.4f, .0 }, 7, 1.0f, LIGHTGRAY);
+    Moon* moon = new Moon("Moon", { 130, 0, 10 }, { 0, 9.0f, .0 }, 10, 0.9f, LIGHTGRAY);
     Moon* phobos = new Moon("Phobos", { 155, 3, 0 }, { 0, 8.1f, 0 }, 1, 0.8f, DARKGRAY);
-    Moon* europa = new Moon("Europa", { 260, 6, 0 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY);
-    earth->Add_Moon(moon);
-    mars->Add_Moon(phobos);
-    jupiter->Add_Moon(europa);
+    Moon* europa = new Moon("Europa", { 260, 6, 20 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY);
+    earth->Place_Moon_In_Orbit(moon,1.15);
+    mars->Place_Moon_In_Orbit(phobos, 1.2);
+    jupiter->Place_Moon_In_Orbit(europa, 1.5);
 
 
 
-    Moon* deimos = new Moon("Deimos", { 160, 5, 0 }, { 0, 7.9f, 0 }, 0.5f, 0.5f, GRAY);
-    mars->Add_Moon(deimos);
+    Moon* deimos = new Moon("Deimos", { 160, 5, 10 }, { 0, 7.9f, 0 }, 0.5f, 0.5f, GRAY);
+    mars->Place_Moon_In_Orbit(deimos, 1.5);
 
-    Moon* io = new Moon("Io", { 270, 10, 0 }, { 0, 6.5f, 0 }, 4, 1.2f, ORANGE);
-    jupiter->Add_Moon(io);
+    Moon* io = new Moon("Io", { 270, 0, 0 }, { 0, 6.5f, 0 }, 4, 1.2f, ORANGE);
+    jupiter->Place_Moon_In_Orbit(io, 1.5);
 
-    Moon* ganymede = new Moon("Ganymede", { 290, 20, -20 }, { 0, 6.0f, 0 }, 5, 1.5f, BROWN);
-    jupiter->Add_Moon(ganymede);
+    Moon* ganymede = new Moon("Ganymede", { 290, 20, -30 }, { 0, 6.0f, 0 }, 5, 1.5f, BROWN);
+    jupiter->Place_Moon_In_Orbit(ganymede, 1.5);
 
-    Moon* callisto = new Moon("Callisto", { 220, 25, 20 }, { 0, 5.7f, 0 }, 4, 1.3f, DARKBROWN);
-    jupiter->Add_Moon(callisto);
+    Moon* callisto = new Moon("Callisto", { 240, 25, 20 }, { 0, 5.7f, 0 }, 4, 1.3f, DARKBROWN);
+    jupiter->Place_Moon_In_Orbit(callisto, 1.5);
 
-    Moon* titan = new Moon("Titan", { 340, 15, 0 }, { 0, 5.0f, 0 }, 5, 1.3f, BEIGE);
-    saturn->Add_Moon(titan);
+    Moon* titan = new Moon("Titan", { 340, -15, 0 }, { 0, 5.0f, 0 }, 5, 1.3f, BEIGE);
+    saturn->Place_Moon_In_Orbit(titan, 1.5);
 
-    Moon* enceladus = new Moon("Enceladus", { 335, 10, 0 }, { 0, 5.3f, 0 }, 2, 0.7f, LIGHTGRAY);
-    saturn->Add_Moon(enceladus);
+    Moon* enceladus = new Moon("Enceladus", { 335, 10, 20 }, { 0, 5.3f, 0 }, 2, 0.7f, LIGHTGRAY);
+    saturn->Place_Moon_In_Orbit(enceladus, 1.5);
 
     Moon* titania = new Moon("Titania", { 420, 15, 0 }, { 0, 4.4f, 0 }, 3, 1.1f, SKYBLUE);
-    uranus->Add_Moon(titania);
+    uranus->Place_Moon_In_Orbit(titania, 1.5);
 
-    Moon* oberon = new Moon("Oberon", { 430, 20, 0 }, { 0, 4.2f, 0 }, 3, 1.0f, DARKBLUE);
-    uranus->Add_Moon(oberon);
+    Moon* oberon = new Moon("Oberon", { 430, -20, 10 }, { 0, 4.2f, 0 }, 3, 1.0f, DARKBLUE);
+    uranus->Place_Moon_In_Orbit(oberon, 1.5);
 
     Moon* triton = new Moon("Triton", { 510, 18, 0 }, { 0, 4.0f, 0 }, 4, 1.2f, WHITE);
-    neptune->Add_Moon(triton);
+    neptune->Place_Moon_In_Orbit(triton, 1.5);
 
 
 
