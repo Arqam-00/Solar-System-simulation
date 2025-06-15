@@ -3,16 +3,16 @@
 bool CelestialBody::CheckDelete() {
     return Mass <= 0.0f;
 }
-CelestialBody::CelestialBody() {
-    Name = "none";
-    Pos = { 0.0f, 0.0f, 0.0f };
-    Vel = { 0.0f, 0.0f, 0.0f };
-    Acc = { 0.0f, 0.0f, 0.0f };
-    Mass = 1.0f;
-    Radius = 1.0f;
-    Body_Color = WHITE;
-    Textured = false;
-    
+CelestialBody::CelestialBody():
+    Name ("none")
+    ,Pos ({ 0.0f, 0.0f, 0.0f })
+    ,Vel ( { 0.0f, 0.0f, 0.0f })
+    ,Acc ( { 0.0f, 0.0f, 0.0f })
+    ,Mass ( 1.0f)
+    ,Radius ( 1.0f)
+    ,Body_Color ( WHITE)
+    ,Textured ( false)
+    ,SphereModel(), DeformationAmount(0.0f){
 }
 
 CelestialBody::CelestialBody(String n, Vector3 Pos, Vector3 Vel, const float Mass, const float Radius, Color Body_Color) {

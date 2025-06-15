@@ -15,21 +15,8 @@
 
 
 using namespace std;
-
-void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
-{
-    flat.push(star);
-    for (int i = 0; i < star->Get_Number_Of_Planets(); i++)
-    {
-        Planet* planet = star->Get_Planet_At(i);
-        flat.push(planet);
-        for (int j = 0; j < planet->Get_Number_Of_Moons(); j++)
-        {
-            flat.push(planet->Get_Moon_At(j));
-        }
-    }
-
-}
+void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat);
+float SimpleSlider(float value, float min_value, float max_value, Rectangle bounds, const char* label, bool& is_dragging);
 
 int main()
 {
@@ -46,13 +33,26 @@ int main()
     Dynamic_array<Star*> Stars;
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
+    //============for creation==================================================================
+    int type_selection = 0;
+    bool creation_mode = false;
+    Vector3 temp_pos = { 0.0f, 0.0f, 0.0f };
+    float temp_mass = 100.0f;
+    float temp_radius = 5.0f;
+
+    bool is_dragging_x = false;
+    bool is_dragging_y = false;
+    bool is_dragging_z = false;
+    bool is_dragging_mass = false;
+    bool is_dragging_radius = false;
+
     
     Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 10000, 45, YELLOW);
     //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
     //Stars.push(sun2);
 
     Stars.push(sun);
-
+    //----------------INITIALIZING PLANETS------------------------------------------
     Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY);
     Planet* venus = new Planet("Venus", { 90, 0, 0 }, { 0, 10.5f, 0 }, 80, 5, ORANGE);
     Planet* earth = new Planet("Earth", { 160, 0, 0 }, { 0, 7.3f, 0 }, 100, 5.5f, BLUE);
@@ -67,20 +67,18 @@ int main()
     sun->Place_Planet_In_Orbit(earth,3.0);
     sun->Place_Planet_In_Orbit(mars,3.8);
 
-
     sun->Place_Planet_In_Orbit(jupiter,7.0);
     sun->Place_Planet_In_Orbit(saturn,7.9);
     sun->Place_Planet_In_Orbit(uranus,8.4);
     sun->Place_Planet_In_Orbit(neptune,9.0);
 
+    //-------------------------------------Initializing Moons-----------------------------------
     Moon* moon = new Moon("Moon", { 0, 0, 0 }, { 0, 7.0f, .0 }, 5, 1.1f, LIGHTGRAY);
     Moon* phobos = new Moon("Phobos", { 155, 3, 0 }, { 0, 7.0f, 0 }, 1.2, 0.8f, DARKGRAY);
     Moon* europa = new Moon("Europa", { 260, 6, 20 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY);
     earth->Place_Moon_In_Orbit(moon,1.7);
     mars->Place_Moon_In_Orbit(phobos, 1.8);
     jupiter->Place_Moon_In_Orbit(europa, 2.8);
-
-
 
     Moon* deimos = new Moon("Deimos", { 160, 5, 10 }, { 0, 7.9f, 0 }, 0.5f, 0.5f, GRAY);
     mars->Place_Moon_In_Orbit(deimos, 1.6);
@@ -163,6 +161,11 @@ int main()
         CelestialBody* HoveredBody = nullptr;
         My_Camera.Update(Delta_Time);
         My_Camera.Update_Info(Delta_Time, All_Bodies, HoveredBody);
+        if (IsKeyPressed(KEY_SLASH))
+        {
+            creation_mode = !creation_mode;
+            Paused = creation_mode;
+        }
 
         if (IsKeyPressed(KEY_P))
         {
@@ -253,6 +256,29 @@ int main()
 
         EndMode3D();
         DrawFPS(10, 10);
+        if (creation_mode)
+        {
+            DrawText("Object Creation Mode", 50, 30, 30, YELLOW);
+            DrawText("Adjust sliders & press ENTER to confirm", 50, 60, 20, WHITE);
+
+            temp_pos.x = SimpleSlider(temp_pos.x, -1000.0f, 1000.0f, { 200, 120, 400, 20 }, "Pos X", is_dragging_x);
+            temp_pos.y = SimpleSlider(temp_pos.y, -1000.0f, 1000.0f, { 200, 170, 400, 20 }, "Pos Y", is_dragging_y);
+            temp_pos.z = SimpleSlider(temp_pos.z, -1000.0f, 1000.0f, { 200, 220, 400, 20 }, "Pos Z", is_dragging_z);
+            temp_mass = SimpleSlider(temp_mass, 1.0f, 10000.0f, { 200, 270, 400, 20 }, "Mass", is_dragging_mass);
+            temp_radius = SimpleSlider(temp_radius, 1.0f, 50.0f, { 200, 320, 400, 20 }, "Radius", is_dragging_radius);
+
+            BeginMode3D(My_Camera.Get_Camera());
+            DrawSphere(temp_pos, temp_radius, RED);
+            EndMode3D();
+        }
+        if (creation_mode && IsKeyPressed(KEY_ENTER))
+        {
+            CelestialBody* new_body = new CelestialBody("UserBody", temp_pos, { 0,0,0 }, temp_mass, temp_radius, RED);
+            All_Bodies.push(new_body);
+            creation_mode = false;
+            Paused = false;
+        }
+
         for (int i = 0; i < Stars.size(); i++) {
             Stars[i]->Shine_Draw(My_Camera.Get_Camera(), screenWidth, screenHeight);
         }
@@ -261,7 +287,7 @@ int main()
             HoveredBody->Draw_Info_Box();
         }
         if (Paused) {
-            DrawText("ZA WORLD", 400, 300, 100, RED);
+            DrawText("| |", 100, 100, 120, RED);
 
         }
         if (My_Camera.Is_Showing_Names())
@@ -284,4 +310,49 @@ int main()
 
     CloseWindow();
     return 0;
+}
+
+void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
+{
+    flat.push(star);
+    for (int i = 0; i < star->Get_Number_Of_Planets(); i++)
+    {
+        Planet* planet = star->Get_Planet_At(i);
+        flat.push(planet);
+        for (int j = 0; j < planet->Get_Number_Of_Moons(); j++)
+        {
+            flat.push(planet->Get_Moon_At(j));
+        }
+    }
+
+}
+float SimpleSlider(float value, float min_value, float max_value, Rectangle bounds, const char* label, bool& is_dragging)
+{
+    DrawRectangleRec(bounds, DARKGRAY);
+    float normalized = (value - min_value) / (max_value - min_value);
+    float handle_x = bounds.x + normalized * bounds.width;
+
+    Rectangle handle = { handle_x - 5, bounds.y - 5, 10, bounds.height + 10 };
+    DrawRectangleRec(handle, RED);
+
+    DrawText(label, bounds.x - 80, bounds.y + 5, 20, WHITE);
+    DrawText(TextFormat("%.2f", value), bounds.x + bounds.width + 10, bounds.y + 5, 20, YELLOW);
+
+    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+    {
+        Vector2 mouse = GetMousePosition();
+        if (CheckCollisionPointRec(mouse, handle)) is_dragging = true;
+    }
+    else { is_dragging = false; }
+
+    if (is_dragging)
+    {
+        Vector2 mouse = GetMousePosition();
+        normalized = (mouse.x - bounds.x) / bounds.width;
+        if (normalized < 0.0f) normalized = 0.0f;
+        if (normalized > 1.0f) normalized = 1.0f;
+        value = min_value + normalized * (max_value - min_value);
+    }
+
+    return value;
 }

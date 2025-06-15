@@ -116,7 +116,7 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
         B.Radius = B.Radius * pow(B.Mass / (B.Mass + absorbed_mass), 1.0f / 3.0f);
     }
     if (A.Get_Mass() < B.Get_Mass()*10) {
-        int meteor_count = static_cast<int>((A.Get_Mass()*0001) / 5.0f);
+        int meteor_count = static_cast<int>((A.Get_Mass()) / 5.0f);
         if (meteor_count > 10) meteor_count = 10;
 
         for (int i = 0; i < meteor_count; i++)
@@ -126,7 +126,7 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
             Vector3 spawn_pos = Vector3Add(B.Get_Position(), Vector3Scale(rand_dir, A.Get_Radius() + 2.0f));
             Vector3 spawn_vel = Vector3Add(B.Get_Velocity(), Vector3Scale(rand_dir, 30.0f));
 
-            bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, (A.Get_Mass() * 0001) / (meteor_count * 100), 1.5f, LIGHTGRAY));
+            bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, (A.Get_Mass() ) / (meteor_count * 100), 1.5f, LIGHTGRAY));
         }
     }
     cout << ":::::::::::" << B.Name << endl;
