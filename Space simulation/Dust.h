@@ -11,44 +11,13 @@ private:
     float FadeSpeed;
 
 public:
-    Dust(String n, Vector3 Pos, Vector3 Vel, float Mass, float Radius, Color Body_Color)
-        : CelestialBody(n, Pos, Vel, Mass, Radius, Body_Color)
-    {
-        Max_Trail_Length = 100;
-        Lifetime = 3.0f; 
-        FadeSpeed = 1.0f;
-    }
+    Dust(String n, Vector3 Pos, Vector3 Vel, float Mass, float Radius, Color Body_Color);
 
-    void Update_Position(float Delta_Time) override{
-        Lifetime -= Delta_Time;
-        if (Lifetime < 0) Lifetime = 0;
+    void Update_Position(float Delta_Time) override;
 
-        Vel = Vector3Add(Vel, Vector3Scale(Acc, Delta_Time));
-        Pos = Vector3Add(Pos, Vector3Scale(Vel, Delta_Time));
+    void Draw_Body() const override;
 
-        Radius = Lerp(Radius, StableRadius, 0.02f);
-        DeformationAmount *= 0.98f;
-
-        float rippleEffect = sin(GetTime() * 5.0f) * DeformationAmount * 0.5f;
-        Radius += rippleEffect;
-
-        Trail.push(Pos);
-        if (Trail.size() > Max_Trail_Length) {
-            Trail.delete_at(0);
-        }
-    }
-
-    void Draw_Body() const override{
-        if (Lifetime <= 0) return;
-
-        float alpha = Lifetime / 3.0f;
-        Color faded_color = { Body_Color.r, Body_Color.g, Body_Color.b, (unsigned char)(alpha * 255) };
-        DrawSphere(Get_Position(), Get_Radius(), faded_color);
-    }
-
-    bool CheckDelete() override{
-        return (Mass <= 0.0f|| Lifetime <= 0.0f);
-    }
+    bool CheckDelete() override;
 };
 
 #endif

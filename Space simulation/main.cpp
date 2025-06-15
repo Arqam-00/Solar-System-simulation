@@ -59,7 +59,7 @@ int main()
     Planet* mars = new Planet("Mars", { 205, 0, 0 }, { 0, 6.9f, 0 }, 70, 4, RED);
 
     Planet* jupiter = new Planet("Jupiter", { 250, 0, 0 }, { 0, 6.0f, 0 }, 800, 8, BROWN);
-    Planet* saturn = new Planet("Saturn", { 320, 0, 0 }, { 0, 5.3f, 0 }, 600, 7, BEIGE);
+    Planet* saturn = new Planet("Saturn", { -320, 0, 0 }, { 0, 5.3f, 0 }, 600, 7, BEIGE);
     Planet* uranus = new Planet("Uranus", { 400, 0, 0 }, { 0, 4.7f, 0 }, 400, 4, SKYBLUE);
     Planet* neptune = new Planet("Neptune", { 500, 0, 0 }, { 0, 4.0f, 0 }, 350, 6, DARKBLUE);
     sun->Place_Planet_In_Orbit(mercury,1.7);
@@ -68,7 +68,7 @@ int main()
     sun->Place_Planet_In_Orbit(mars,3.8);
 
 
-    sun->Place_Planet_In_Orbit(jupiter,7.3);
+    sun->Place_Planet_In_Orbit(jupiter,7.0);
     sun->Place_Planet_In_Orbit(saturn,7.9);
     sun->Place_Planet_In_Orbit(uranus,8.4);
     sun->Place_Planet_In_Orbit(neptune,9.0);
@@ -95,7 +95,7 @@ int main()
     jupiter->Place_Moon_In_Orbit(callisto, 2.7f);
 
     Moon* titan = new Moon("Titan", { 340, -15, 0 }, { 0, 5.0f, 0 }, 5, 1.3f, BEIGE);
-    saturn->Place_Moon_In_Orbit(titan, 1.5);
+    saturn->Place_Moon_In_Orbit(titan, 4.5);
 
     Moon* enceladus = new Moon("Enceladus", { 335, 10, 20 }, { 0, 5.3f, 0 }, 2, 0.7f, LIGHTGRAY);
     saturn->Place_Moon_In_Orbit(enceladus, 1.5);
@@ -110,7 +110,7 @@ int main()
     neptune->Place_Moon_In_Orbit(triton, 2.5);
 
     saturn->Add_Ring(30);
-    sun->Add_Asteroid_Belt(80, 230, 290, Free_Bodies);
+    sun->Add_Asteroid_Belt(30, 230, 290, Free_Bodies);
 
     for (int i = 0; i < Stars.size(); i++)
     {
