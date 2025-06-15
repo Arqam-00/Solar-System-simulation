@@ -5,9 +5,12 @@
 
 class Moon : public CelestialBody {
 public:
-    Moon() :CelestialBody() {}
+    Moon() :CelestialBody() {
+        Max_Trail_Length = 550;
+    }
     Moon(String n, Vector3 Pos, Vector3 Vel, float Mass, float Radius, Color clr)
         : CelestialBody(n, Pos, Vel, Mass, Radius, clr) {
+        Max_Trail_Length = 550;
     }
     friend class Planet;
     void Draw_Body() const override {

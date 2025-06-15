@@ -27,7 +27,9 @@ protected:
 
 public:
     friend class Collision;
-
+    virtual bool CheckDelete() {
+        return Mass <= 0.0f;
+    }
     CelestialBody() {
         Name = "none";
         Pos = { 0.0f, 0.0f, 0.0f };

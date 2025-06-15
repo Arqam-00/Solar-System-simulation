@@ -46,8 +46,8 @@ public:
         DrawSphere(Get_Position(), Get_Radius(), faded_color);
     }
 
-    bool IsDead() const {
-        return Lifetime <= 0.0f;
+    bool CheckDelete() {
+        return (Mass <= 0.0f|| Lifetime <= 0.0f);
     }
 };
 

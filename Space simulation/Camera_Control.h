@@ -51,15 +51,21 @@ public:
         Vector3 Forward = Vector3Normalize(Vector3Subtract(Cam.target, Cam.position));
         Vector3 Right = Vector3Normalize(Vector3CrossProduct(Forward, Cam.up));
         Vector3 Upward = Vector3Normalize(Vector3CrossProduct(Right, Forward));
-
+        int factor = 1;
+        if (IsKeyDown(KEY_LEFT_CONTROL)) {
+            factor = 5;
+        }
+        else {
+            factor = 1;
+        }
         Vector3 Move = { 0 };
 
-        if (IsKeyDown(KEY_W)) Move = Vector3Add(Move, Vector3Scale(Forward, Move_Speed * Delta_Time*10));
-        if (IsKeyDown(KEY_S)) Move = Vector3Add(Move, Vector3Scale(Forward, -Move_Speed * Delta_Time*10));
-        if (IsKeyDown(KEY_D)) Move = Vector3Add(Move, Vector3Scale(Right, Move_Speed * Delta_Time*10));
-        if (IsKeyDown(KEY_A)) Move = Vector3Add(Move, Vector3Scale(Right, -Move_Speed * Delta_Time*10));
-        if (IsKeyDown(KEY_SPACE)) Move = Vector3Add(Move, Vector3Scale(Upward, Move_Speed * Delta_Time * 10));
-        if (IsKeyDown(KEY_LEFT_SHIFT)) Move = Vector3Add(Move, Vector3Scale(Upward, -Move_Speed * Delta_Time * 10));
+        if (IsKeyDown(KEY_W)) Move = Vector3Add(Move, Vector3Scale(Forward,factor* Move_Speed * Delta_Time*10));
+        if (IsKeyDown(KEY_S)) Move = Vector3Add(Move, Vector3Scale(Forward, factor * -Move_Speed * Delta_Time*10));
+        if (IsKeyDown(KEY_D)) Move = Vector3Add(Move, Vector3Scale(Right, factor * Move_Speed * Delta_Time*10));
+        if (IsKeyDown(KEY_A)) Move = Vector3Add(Move, Vector3Scale(Right, factor * -Move_Speed * Delta_Time*10));
+        if (IsKeyDown(KEY_SPACE)) Move = Vector3Add(Move, Vector3Scale(Upward, factor * Move_Speed * Delta_Time * 10));
+        if (IsKeyDown(KEY_LEFT_SHIFT)) Move = Vector3Add(Move, Vector3Scale(Upward, factor * -Move_Speed * Delta_Time * 10));
 
         if (IsKeyPressed(KEY_Q))
         {

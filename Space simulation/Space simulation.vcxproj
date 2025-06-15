@@ -149,6 +149,9 @@
     <ClInclude Include="Star.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Star.fs" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

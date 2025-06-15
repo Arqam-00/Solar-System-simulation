@@ -12,6 +12,8 @@
 #include "Camera_Control.h"
 #include "Collision.h"
 
+
+
 using namespace std;
 
 void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
@@ -30,6 +32,7 @@ void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
 
 int main()
 {
+
     const int screenWidth = 1200;
     const int screenHeight = 800;
 
@@ -43,47 +46,52 @@ int main()
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
 
-    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 40, YELLOW);
+    Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, 0 }, 100000, 50, YELLOW);
+    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { 0, 0, 0 }, 100000, 50, YELLOW);
+    Stars.push(sun2);
+
     Stars.push(sun);
 
     Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY);
     Planet* venus = new Planet("Venus", { 90, 0, 0 }, { 0, 10.5f, 0 }, 80, 5, ORANGE);
-    Planet* earth = new Planet("Earth", { 120, 0, 0 }, { 0, 9.3f, 0 }, 190, 5.5f, BLUE);
-    Planet* mars = new Planet("Mars", { 150, 0, 0 }, { 0, 7.9f, 0 }, 60, 4, RED);
+    Planet* earth = new Planet("Earth", { 160, 0, 0 }, { 0, 7.3f, 0 }, 100, 5.5f, BLUE);
+    Planet* mars = new Planet("Mars", { 205, 0, 0 }, { 0, 6.9f, 0 }, 70, 4, RED);
 
     Planet* jupiter = new Planet("Jupiter", { 250, 0, 0 }, { 0, 6.0f, 0 }, 800, 8, BROWN);
     Planet* saturn = new Planet("Saturn", { 320, 0, 0 }, { 0, 5.3f, 0 }, 600, 7, BEIGE);
     Planet* uranus = new Planet("Uranus", { 400, 0, 0 }, { 0, 4.7f, 0 }, 400, 4, SKYBLUE);
     Planet* neptune = new Planet("Neptune", { 500, 0, 0 }, { 0, 4.0f, 0 }, 350, 6, DARKBLUE);
-    sun->Add_Planet(mercury);
-    sun->Add_Planet(venus);
-    sun->Add_Planet(earth);
-    sun->Add_Planet(mars);
-    sun->Add_Planet(jupiter);
-    sun->Add_Planet(saturn);
-    sun->Add_Planet(uranus);
-    sun->Add_Planet(neptune);
+    sun->Place_Planet_In_Orbit(mercury,1.7);
+    sun->Place_Planet_In_Orbit(venus,2.1);
+    sun->Place_Planet_In_Orbit(earth,3.0);
+    sun->Place_Planet_In_Orbit(mars,3.8);
 
-    Moon* moon = new Moon("Moon", { 130, 0, 10 }, { 0, 9.0f, .0 }, 10, 0.9f, LIGHTGRAY);
-    Moon* phobos = new Moon("Phobos", { 155, 3, 0 }, { 0, 8.1f, 0 }, 1, 0.8f, DARKGRAY);
+
+    sun->Place_Planet_In_Orbit(jupiter,4.6);
+    sun->Place_Planet_In_Orbit(saturn,4.8);
+    sun->Place_Planet_In_Orbit(uranus,5.3);
+    sun->Place_Planet_In_Orbit(neptune,5.7);
+
+    Moon* moon = new Moon("Moon", { 0, 0, 0 }, { 0, 7.0f, .0 }, 5, 1.1f, LIGHTGRAY);
+    Moon* phobos = new Moon("Phobos", { 155, 3, 0 }, { 0, 7.0f, 0 }, 1.2, 0.8f, DARKGRAY);
     Moon* europa = new Moon("Europa", { 260, 6, 20 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY);
-    earth->Place_Moon_In_Orbit(moon,1.15);
-    mars->Place_Moon_In_Orbit(phobos, 1.2);
-    jupiter->Place_Moon_In_Orbit(europa, 1.5);
+    earth->Place_Moon_In_Orbit(moon,1.7);
+    mars->Place_Moon_In_Orbit(phobos, 1.8);
+    jupiter->Place_Moon_In_Orbit(europa, 1.8);
 
 
 
     Moon* deimos = new Moon("Deimos", { 160, 5, 10 }, { 0, 7.9f, 0 }, 0.5f, 0.5f, GRAY);
-    mars->Place_Moon_In_Orbit(deimos, 1.5);
+    mars->Place_Moon_In_Orbit(deimos, 1.6);
 
-    Moon* io = new Moon("Io", { 270, 0, 0 }, { 0, 6.5f, 0 }, 4, 1.2f, ORANGE);
-    jupiter->Place_Moon_In_Orbit(io, 1.5);
+    Moon* io = new Moon("Io", { 270, -20, 0 }, { 0, 6.5f, -3.0f }, 4, 1.2f, ORANGE);
+    jupiter->Place_Moon_In_Orbit(io, 2.1f);
 
-    Moon* ganymede = new Moon("Ganymede", { 290, 20, -30 }, { 0, 6.0f, 0 }, 5, 1.5f, BROWN);
-    jupiter->Place_Moon_In_Orbit(ganymede, 1.5);
+    Moon* ganymede = new Moon("Ganymede", { 290, 20, -30 }, { 0, 6.0f, 3.0f }, 5, 1.5f, BROWN);
+    jupiter->Place_Moon_In_Orbit(ganymede, 1.9f);
 
-    Moon* callisto = new Moon("Callisto", { 240, 25, 20 }, { 0, 5.7f, 0 }, 4, 1.3f, DARKBROWN);
-    jupiter->Place_Moon_In_Orbit(callisto, 1.5);
+    Moon* callisto = new Moon("Callisto", { 220, 20, 20 }, { 0, 6.7f, 0 }, 4, 1.3f, DARKBROWN);
+    jupiter->Place_Moon_In_Orbit(callisto, 1.7f);
 
     Moon* titan = new Moon("Titan", { 340, -15, 0 }, { 0, 5.0f, 0 }, 5, 1.3f, BEIGE);
     saturn->Place_Moon_In_Orbit(titan, 1.5);
@@ -100,22 +108,9 @@ int main()
     Moon* triton = new Moon("Triton", { 510, 18, 0 }, { 0, 4.0f, 0 }, 4, 1.2f, WHITE);
     neptune->Place_Moon_In_Orbit(triton, 1.5);
 
-
-
-    for (int i = 0; i < sun->Get_Number_Of_Planets(); i++)
-    {
-        sun->Stabilize_Orbit(i);
-
-        for (int j = 0; j < sun->Get_Planet_At(i)->Get_Number_Of_Moons(); j++)
-        {
-            sun->Get_Planet_At(i)->Stabilize_Orbit(j);
-        }
+    for (int i = 0; i < 5; i++) {
+        saturn->Place_Moon_In_Orbit(new Moon("Moon of saturn "+(char)i, { 335, 10, 20 }, { 0, 5.3f, 0 }, 0.01f, 0.05f, LIGHTGRAY), 1.9 + i);
     }
-
-
-    
-
-   
 
     for (int i = 0; i < Stars.size(); i++)
     {
@@ -133,75 +128,114 @@ int main()
     Free_Bodies.push(new Meteor("Meteor4", { -600, 250, 0 }, { 0, 4.1f, 0 }, 2.5f, 1.0f, DARKBROWN));
 
     All_Bodies += Free_Bodies;
-
+    int count = 0;
+    bool Paused = false;
+    bool Show_Trail = true;
     while (!WindowShouldClose())
     {
         float Delta_Time = GetFrameTime();
         CelestialBody* HoveredBody = nullptr;
-
         My_Camera.Update(Delta_Time);
         My_Camera.Update_Info(Delta_Time, All_Bodies, HoveredBody);
 
-        for (int i = 0; i < All_Bodies.size(); i++)
+        if (IsKeyPressed(KEY_P))
         {
-            All_Bodies[i]->Reset_Acceleration();
-        }
 
-        for (int i = 0; i < All_Bodies.size(); i++)
-        {
-            for (int j = 0; j < All_Bodies.size(); j++)
+            Paused = !Paused;
+        }
+        if (!Paused) {
+            
+
+            for (int i = 0; i < All_Bodies.size(); i++)
             {
-                if (i != j)
+                All_Bodies[i]->Reset_Acceleration();
+            }
+
+            for (int i = 0; i < All_Bodies.size(); i++)
+            {
+                for (int j = 0; j < All_Bodies.size(); j++)
                 {
-                    All_Bodies[i]->Compute_Gravity_From(*All_Bodies[j]);
+                    if (i != j)
+                    {
+                        All_Bodies[i]->Compute_Gravity_From(*All_Bodies[j]);
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < All_Bodies.size(); i++)
-        {
-            for (int j = i + 1; j < All_Bodies.size(); j++)
+            for (int i = 0; i < All_Bodies.size(); i++)
             {
-                C.Handle_Collision(*All_Bodies[i], *All_Bodies[j], All_Bodies);
+                for (int j = i + 1; j < All_Bodies.size(); j++)
+                {
+                    C.Handle_Collision(*All_Bodies[i], *All_Bodies[j], All_Bodies);
+                }
             }
-        }
-
-        for (int i = 0; i < All_Bodies.size(); )
-        {
-            if (All_Bodies[i]->Get_Mass() == 0.0f)
+            if (count == 1) {
+                //sun->Orbital_Stabilizer(Delta_Time);
+                for (int i = 0; i < sun->Get_Number_Of_Planets(); i++)
+                {
+                   // sun->Get_Planet_At(i)->Orbital_Stabilizer(Delta_Time);
+                }
+                count = 0;
+            }
+            count++;
+            for (int i = 0; i < All_Bodies.size(); )
             {
-                delete All_Bodies[i];
-                All_Bodies.delete_at(i);
+                if (All_Bodies[i]->CheckDelete())
+                {
+                    delete All_Bodies[i];
+                    All_Bodies[i] = nullptr;
+                    All_Bodies.delete_at(i);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            if (IsKeyDown(KEY_F)) 
+            {
+                Delta_Time *= 10;
             }
             else
             {
-                i++;
+                Delta_Time = GetFrameTime();
             }
-        }
-
-        for (int i = 0; i < All_Bodies.size(); i++)
-        {
-            All_Bodies[i]->Update_Position(Delta_Time);
+            for (int i = 0; i < All_Bodies.size(); i++)
+            {
+                All_Bodies[i]->Update_Position(Delta_Time);
+            }
         }
 
         BeginDrawing();
         ClearBackground(BLACK);
         BeginMode3D(My_Camera.Get_Camera());
+        if (IsKeyDown(KEY_T))
+        {
+            Show_Trail = !Show_Trail;
+        }
+
 
         for (int i = 0; i < All_Bodies.size(); i++)
         {
             All_Bodies[i]->Draw_Body();
-            All_Bodies[i]->Draw_Trail();
+            if (Show_Trail) {
+                All_Bodies[i]->Draw_Trail();
+            }
         }
 
         EndMode3D();
         DrawFPS(10, 10);
-
+        for (int i = 0; i < Stars.size(); i++) {
+            Stars[i]->Shine_Draw(My_Camera.Get_Camera(), screenWidth, screenHeight);
+        }
         if (HoveredBody != nullptr)
         {
             HoveredBody->Draw_Info_Box();
         }
+        if (Paused) {
+            DrawText("ZA WORLD", 400, 300, 100, RED);
 
+        }
         if (My_Camera.Is_Showing_Names())
         {
             for (int i = 0; i < All_Bodies.size(); i++)
