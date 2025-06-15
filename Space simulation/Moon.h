@@ -16,7 +16,7 @@ public:
     void Draw_Body() const override {
         DrawSphere(Pos, Radius, Body_Color);
     }
-    ~Moon() {}
+    virtual ~Moon() {}
 };
 
 #endif

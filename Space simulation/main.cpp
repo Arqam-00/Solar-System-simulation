@@ -46,8 +46,8 @@ int main()
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
 
-    Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, 0 }, 100000, 50, YELLOW);
-    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { 0, 0, 0 }, 100000, 50, YELLOW);
+    Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, -5 }, 120000, 50, YELLOW);
+    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
     Stars.push(sun2);
 
     Stars.push(sun);
@@ -133,6 +133,8 @@ int main()
     bool Show_Trail = true;
     while (!WindowShouldClose())
     {
+        cout << Stars.size();
+
         float Delta_Time = GetFrameTime();
         CelestialBody* HoveredBody = nullptr;
         My_Camera.Update(Delta_Time);
@@ -169,28 +171,28 @@ int main()
                     C.Handle_Collision(*All_Bodies[i], *All_Bodies[j], All_Bodies);
                 }
             }
-            if (count == 1) {
-                //sun->Orbital_Stabilizer(Delta_Time);
-                for (int i = 0; i < sun->Get_Number_Of_Planets(); i++)
-                {
-                   // sun->Get_Planet_At(i)->Orbital_Stabilizer(Delta_Time);
-                }
-                count = 0;
-            }
-            count++;
-            for (int i = 0; i < All_Bodies.size(); )
+            
+            for (int i = All_Bodies.size() - 1; i >= 0;i-- )
             {
-                if (All_Bodies[i]->CheckDelete())
+                if (All_Bodies[i]->Get_Mass() <=0)
                 {
+                    for (int j = Stars.size() - 1; j >= 0; j--) {
+                        if (Stars[j]->Get_Mass() <= 0) {
+                            Stars.delete_at(j);
+                        }
+                        else {
+                            Stars[j]->CheckDelete(All_Bodies[i]);
+                        }
+                    }
                     delete All_Bodies[i];
                     All_Bodies[i] = nullptr;
                     All_Bodies.delete_at(i);
+
                 }
-                else
-                {
-                    i++;
-                }
+
             }
+            //cout << Stars[0]->Get_Name() << "  ," << Stars[0]->Get_Mass() << endl;
+            //cout << Stars[1]->Get_Name() << "  ," << Stars[1]->Get_Mass() << endl;
 
             if (IsKeyDown(KEY_F)) 
             {
@@ -247,6 +249,7 @@ int main()
 
         EndDrawing();
     }
+    
 
     for (int i = 0; i < All_Bodies.size(); i++) delete All_Bodies[i];
     All_Bodies.clear();

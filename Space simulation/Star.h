@@ -16,26 +16,21 @@ private:
 public:
     Star(String name, Vector3 p, Vector3 v, float m, float r, Color color)
         : CelestialBody(name, p, v, m, r, color)
-    {
-        Intensity_Of_Light = 10;
-        temperature = 3000;
-        Shine_Shader = LoadShader(0, "star.fs");
-        centerLoc = GetShaderLocation(Shine_Shader, "center");
-        resolutionLoc = GetShaderLocation(Shine_Shader, "resolution");
-        colorLoc = GetShaderLocation(Shine_Shader, "starColor");
-        radiusLoc = GetShaderLocation(Shine_Shader, "radius");
-        glowLoc = GetShaderLocation(Shine_Shader, "glowStrength");
-
+        , Shine_Shader(LoadShader(0, "star.fs"))
+        , centerLoc(GetShaderLocation(Shine_Shader, "center"))
+        , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
+        , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
+        , radiusLoc(GetShaderLocation(Shine_Shader, "radius"))
+        , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength")) {
     }
     Star(String name, Vector3 p, Vector3 v, float m, float r, Color color ,float light,float heat)
-        : CelestialBody(name, p, v, m, r, color),Intensity_Of_Light(light),temperature(heat){
-        Shine_Shader = LoadShader(0, "star.fs");
-        centerLoc = GetShaderLocation(Shine_Shader, "center");
-        resolutionLoc = GetShaderLocation(Shine_Shader, "resolution");
-        colorLoc = GetShaderLocation(Shine_Shader, "starColor");
-        radiusLoc = GetShaderLocation(Shine_Shader, "radius");
-        glowLoc = GetShaderLocation(Shine_Shader, "glowStrength");
-    }
+        : CelestialBody(name, p, v, m, r, color),Intensity_Of_Light(light),temperature(heat)
+        ,Shine_Shader ( LoadShader(0, "star.fs"))
+        ,centerLoc ( GetShaderLocation(Shine_Shader, "center"))
+        ,resolutionLoc ( GetShaderLocation(Shine_Shader, "resolution"))
+        ,colorLoc ( GetShaderLocation(Shine_Shader, "starColor"))
+        ,radiusLoc ( GetShaderLocation(Shine_Shader, "radius"))
+        ,glowLoc ( GetShaderLocation(Shine_Shader, "glowStrength")){}
 
     void Add_Planet(Planet* planet)
     {
@@ -120,67 +115,29 @@ public:
 
     int Get_Number_Of_Planets() { return Planets.size(); }
     Planet* Get_Planet_At(int index) { return Planets[index]; }
-    ~Star() {
+    virtual ~Star() {
+        UnloadShader(Shine_Shader);
         Planets.clear();
+
     }
 
-    void Orbital_Stabilizer(float delta_time)
-    {
-        const float radial_correction_strength = 1.0f;
-        const float tangential_correction_strength = 1.0f;
-        const float max_radial_accel = 1.0f;
-        const float max_tangential_accel = 1.0f;
-
-        for (int i = 0; i < Planets.size(); i++)
-        {
-            Planet* planet = Planets[i];
-
-            Vector3 direction = Vector3Normalize(Vector3Subtract(planet->Pos, Pos));
-            float current_distance = Vector3Distance(planet->Pos, Pos);
-            float desired_distance = Radius * 5.5f + planet->Get_Radius();
-
-            float distance_error = (current_distance - desired_distance);
-            float radial_accel_magnitude = distance_error * radial_correction_strength;
-
-            if (radial_accel_magnitude > max_radial_accel) radial_accel_magnitude = max_radial_accel;
-            if (radial_accel_magnitude < -max_radial_accel) radial_accel_magnitude = -max_radial_accel;
-
-            Vector3 radial_accel = Vector3Scale(direction, -radial_accel_magnitude);
-            planet->Acc = Vector3Add(planet->Acc, radial_accel);
-
-            float ideal_speed = sqrt(G * (Mass + planet->Mass) / current_distance);
-            Vector3 rel_vel = Vector3Subtract(planet->Vel, Vel);
-
-            Vector3 orbit_axis = Vector3Normalize(Vector3CrossProduct(direction, rel_vel));
-            if (Vector3Length(orbit_axis) < 0.001f)
-                orbit_axis = { 0, 1, 0 };
-
-            Vector3 tangent = Vector3Normalize(Vector3CrossProduct(orbit_axis, direction));
-            float tangential_speed = Vector3DotProduct(rel_vel, tangent);
-            float tangential_error = ideal_speed - tangential_speed;
-            float tangential_accel_magnitude = tangential_error * tangential_correction_strength;
-
-            if (tangential_accel_magnitude > max_tangential_accel) tangential_accel_magnitude = max_tangential_accel;
-            if (tangential_accel_magnitude < -max_tangential_accel) tangential_accel_magnitude = -max_tangential_accel;
-
-            Vector3 tangential_accel = Vector3Scale(tangent, tangential_accel_magnitude);
-            planet->Acc = Vector3Add(planet->Acc, tangential_accel);
-        }
-    }
-    bool CheckDelete() override {
-        for (int i = 0; i < Planets.size(); i++) {
-            if (Planets[i] == nullptr) {
+    
+    void CheckDelete(CelestialBody* B) {
+        for (int i = Planets.size() - 1; i >=0 ;i--) {
+            if (Planets[i] == B) {
                 Planets.delete_at(i);
 
             }
-            else if (Planets[i]->CheckDelete()) {
-                Planets.delete_at(i);
+            else {
+                (Planets[i]->CheckDelete(B));
             }
+            
         }
-        return CelestialBody::CheckDelete();
+        
     }
     void Shine_Draw(Camera3D camera, int screenWidth, int screenHeight)
     {
+
         Vector2 center = GetWorldToScreenEx(Pos, camera, screenWidth, screenHeight);
 
         center.y = (float)screenHeight - center.y;
@@ -200,7 +157,7 @@ public:
         SetShaderValue(Shine_Shader, glowLoc, &glowStrength, SHADER_UNIFORM_FLOAT);
 
         BeginShaderMode(Shine_Shader);
-        DrawRectangle(0, 0, screenWidth, screenHeight, BLANK);
+        DrawRectangle(0, 0, screenWidth, screenHeight, BLACK);
         EndShaderMode();
     }
 

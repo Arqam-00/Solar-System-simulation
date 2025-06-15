@@ -216,7 +216,7 @@ public:
 	}
 	void reverse()                       // Reverses the array elements
 	{
-		int temp = data[0];
+		T temp = data[0];
 		for (int i = 0; i < len / 2; i++) {
 			temp = data[i];
 			data[i] = data[len - 1 - i];
@@ -280,7 +280,9 @@ public:
 		}
 		return -1;
 	}
-
+	T* Get_Data() {
+		return data;
+	}
 };
 
 #endif // DYNAMIC_ARRAY_H

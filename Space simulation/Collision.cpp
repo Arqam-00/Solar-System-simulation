@@ -7,44 +7,84 @@ const float G = 0.1f;
 
 void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
-    if (B.Get_Mass() > A.Get_Mass()) { swap(A, B); }
     if (A.Get_Mass() <= 0.0f || B.Get_Mass() <= 0.0f) return;
 
-    float Distance = Vector3Distance(A.Get_Position(), B.Get_Position());
-    float Radius_Sum = A.Get_Radius() + B.Get_Radius();
+    if (B.Get_Mass() < A.Get_Mass()) {
 
-    if (Distance > Radius_Sum) return;
+        float Distance = Vector3Distance(A.Get_Position(), B.Get_Position());
+        float Radius_Sum = A.Get_Radius() + B.Get_Radius();
 
-    Vector3 Relative_Velocity = Vector3Subtract(A.Get_Velocity(), B.Get_Velocity());
-    float Relative_Speed = Vector3Length(Relative_Velocity);
-    float reduced_mass = (A.Get_Mass() * B.Get_Mass()) / (A.Get_Mass() + B.Get_Mass());
-    float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
-    float binding_energy = (3.0f / 5.0f) * G * (A.Get_Mass() * B.Get_Mass()) / Radius_Sum;
+        if (Distance > Radius_Sum) return;
 
-   
-    Vector3 impactDirection = Vector3Normalize(Vector3Subtract(B.Get_Position(), A.Get_Position()));
-    A.Apply_Collision_Deformation(kinetic_energy);
-    B.Apply_Collision_Deformation(kinetic_energy);
+        Vector3 Relative_Velocity = Vector3Subtract(A.Get_Velocity(), B.Get_Velocity());
+        float Relative_Speed = Vector3Length(Relative_Velocity);
+        float reduced_mass = (A.Get_Mass() * B.Get_Mass()) / (A.Get_Mass() + B.Get_Mass());
+        float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
+        float binding_energy = (3.0f / 5.0f) * G * (A.Get_Mass() * B.Get_Mass()) / Radius_Sum;
 
-    if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass()*10)
-    {
-        Merge(A, B, 1.0f,bodies);
+
+        Vector3 impactDirection = Vector3Normalize(Vector3Subtract(B.Get_Position(), A.Get_Position()));
+        A.Apply_Collision_Deformation(kinetic_energy);
+        B.Apply_Collision_Deformation(kinetic_energy);
+
+        if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass() * 10)
+        {
+            Merge(A, B, 1.0f, bodies);
+        }
+        else if (kinetic_energy < 0.7f * binding_energy || A.Get_Mass() < B.Get_Mass() * 2)
+        {
+            Partial_Merge(A, B, bodies);
+        }
+        else if (kinetic_energy < 1.2f * binding_energy)
+        {
+            Semi_Elastic(A, B, bodies);
+        }
+        else if (kinetic_energy < 2.0f * binding_energy)
+        {
+            Glancing(A, B);
+        }
+        else
+        {
+            Destroy(A, B, bodies);
+        }
     }
-    else if (kinetic_energy < 0.7f * binding_energy || A.Get_Mass() < B.Get_Mass()*2)
-    {
-        Partial_Merge(A, B, bodies);
-    }
-    else if (kinetic_energy < 1.2f * binding_energy)
-    {
-        Semi_Elastic(A, B, bodies);
-    }
-    else if (kinetic_energy < 2.0f * binding_energy)
-    {
-        Glancing(A, B);
-    }
-    else
-    {
-        Destroy(A, B, bodies);
+    else {
+        float Distance = Vector3Distance(B.Get_Position(), A.Get_Position());
+        float Radius_Sum = B.Get_Radius() + A.Get_Radius();
+
+        if (Distance > Radius_Sum) return;
+
+        Vector3 Relative_Velocity = Vector3Subtract(B.Get_Velocity(), A.Get_Velocity());
+        float Relative_Speed = Vector3Length(Relative_Velocity);
+        float reduced_mass = (B.Get_Mass() * A.Get_Mass()) / (B.Get_Mass() + A.Get_Mass());
+        float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
+        float binding_energy = (3.0f / 5.0f) * G * (B.Get_Mass() * A.Get_Mass()) / Radius_Sum;
+
+
+        Vector3 impactDirection = Vector3Normalize(Vector3Subtract(A.Get_Position(), B.Get_Position()));
+        A.Apply_Collision_Deformation(kinetic_energy);
+        B.Apply_Collision_Deformation(kinetic_energy);
+
+        if (kinetic_energy < 0.3f * binding_energy || B.Get_Mass()>A.Get_Mass() * 10)
+        {
+            Merge(A, B, 1.0f, bodies);
+        }
+        else if (kinetic_energy < 0.7f * binding_energy || B.Get_Mass() < A.Get_Mass() * 2)
+        {
+            Partial_Merge(B,A, bodies);
+        }
+        else if (kinetic_energy < 1.2f * binding_energy)
+        {
+            Semi_Elastic(B, A, bodies);
+        }
+        else if (kinetic_energy < 2.0f * binding_energy)
+        {
+            Glancing(B, A);
+        }
+        else
+        {
+            Destroy(B, A, bodies);
+        }
     }
 }
 

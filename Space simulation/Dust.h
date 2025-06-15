@@ -46,7 +46,7 @@ public:
         DrawSphere(Get_Position(), Get_Radius(), faded_color);
     }
 
-    bool CheckDelete() {
+    bool CheckDelete() override{
         return (Mass <= 0.0f|| Lifetime <= 0.0f);
     }
 };

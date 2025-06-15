@@ -109,82 +109,24 @@ public:
     int Get_Number_Of_Moons() { return Moons.size(); }
     Moon* Get_Moon_At(int index) { return Moons[index]; }
 
-    ~Planet() {
+    virtual ~Planet() {
         Moons.clear();
     }
-    void Orbital_Stabilizer(float delta_time)
-    {
-
-    }
 
 
+    void CheckDelete(CelestialBody* B) {
 
-    bool CheckDelete() override {
-
-        for (int i = 0; i < Moons.size(); i++) {
-            if (Moons[i] == nullptr) {
+        for (int i = Moons.size() - 1; i >= 0;i--) {
+            if (Moons[i] == B) {
                 Moons.delete_at(i);
 
             }
-            else if (Moons[i]->CheckDelete()) {
-                Moons.delete_at(i);
-            }
+            
         }
-        return CelestialBody::CheckDelete();
+       
 
     }
-    void Orbit_Stabilizer(float delta_time)
-    {
-        const float correction_strength = 0.08f;
-        const float min_separation_factor = 1.5f;
 
-        for (int i = 0; i < Moons.size(); i++)
-        {
-            Moon* moon = Moons[i];
-
-            Vector3 direction = Vector3Normalize(Vector3Subtract(moon->Pos, Pos));
-            float current_distance = Vector3Distance(moon->Pos, Pos);
-            float desired_distance = Radius * 2.5f + moon->Get_Radius() + (i * 8.0f);
-
-            float distance_error = (current_distance - desired_distance);
-
-            // Apply only a radial correction to keep the moon at the correct orbital distance
-            float radial_accel_magnitude = distance_error * correction_strength;
-            Vector3 radial_accel = Vector3Scale(direction, -radial_accel_magnitude);
-            moon->Acc = Vector3Add(moon->Acc, radial_accel);
-
-            // Prevent moon collisions by ensuring separation between moons
-            for (int j = 0; j < Moons.size(); j++)
-            {
-                if (i == j) continue;
-
-                float moon_dist = Vector3Distance(moon->Pos, Moons[j]->Pos);
-                float min_separation = min_separation_factor * (moon->Get_Radius() + Moons[j]->Get_Radius());
-
-                if (moon_dist < min_separation)
-                {
-                    Vector3 repulsion = Vector3Normalize(Vector3Subtract(moon->Pos, Moons[j]->Pos));
-                    moon->Acc = Vector3Add(moon->Acc, Vector3Scale(repulsion, correction_strength));
-                }
-            }
-
-            // Adjust tangential velocity for orbital stability
-            Vector3 rel_vel = Vector3Subtract(moon->Vel, Vel);
-            Vector3 orbit_axis = Vector3CrossProduct(direction, rel_vel);
-            if (Vector3Length(orbit_axis) < 0.001f)
-                orbit_axis = { 0, 1, 0 };
-
-            Vector3 tangent = Vector3Normalize(Vector3CrossProduct(orbit_axis, direction));
-
-            float current_tangential_speed = Vector3DotProduct(rel_vel, tangent);
-            float target_speed = sqrt(G * (Mass + moon->Mass) / current_distance);
-
-            float tangential_error = target_speed - current_tangential_speed;
-            float tangential_accel_magnitude = tangential_error * correction_strength;
-            Vector3 tangential_accel = Vector3Scale(tangent, tangential_accel_magnitude);
-            moon->Acc = Vector3Add(moon->Acc, tangential_accel);
-        }
-    }
 
 };
 
