@@ -7,8 +7,9 @@ Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color)
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
     , radiusLoc(GetShaderLocation(Shine_Shader, "radius"))
-    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength")) {
-}
+    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength"))
+    , Rotation_Axis({ 0.0f,1.0f,0.0f })
+    ,Rotation_Vel(20.0f){}
 Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, float light, float heat)
     : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(light), temperature(heat)
     , Shine_Shader(LoadShader(0, "Textures&Shaders/star.fs"))
@@ -16,7 +17,30 @@ Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, flo
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
     , radiusLoc(GetShaderLocation(Shine_Shader, "radius"))
-    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength")) {
+    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength"))
+    , Rotation_Axis({ 0.0f,1.0f,0.0f })
+    , Rotation_Vel(20.0f){}
+Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color,Vector3 rot_axis,float rot_vel)
+    : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(10), temperature(1000)
+    , Shine_Shader(LoadShader(0, "Textures&Shaders/star.fs"))
+    , centerLoc(GetShaderLocation(Shine_Shader, "center"))
+    , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
+    , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
+    , radiusLoc(GetShaderLocation(Shine_Shader, "radius"))
+    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength"))
+    , Rotation_Axis(rot_axis)
+    , Rotation_Vel(rot_vel) {
+}
+Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, float light, float heat, Vector3 rot_axis, float rot_vel)
+    : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(light), temperature(heat)
+    , Shine_Shader(LoadShader(0, "Textures&Shaders/star.fs"))
+    , centerLoc(GetShaderLocation(Shine_Shader, "center"))
+    , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
+    , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
+    , radiusLoc(GetShaderLocation(Shine_Shader, "radius"))
+    , glowLoc(GetShaderLocation(Shine_Shader, "glowStrength"))
+    , Rotation_Axis(rot_axis)
+    , Rotation_Vel(rot_vel) {
 }
 
 void Star::Add_Planet(Planet* planet)
@@ -100,7 +124,20 @@ void Star::Check_Escape(Dynamic_array<CelestialBody*>& free_bodies)
 
 int Star::Get_Number_Of_Planets() { return Planets.size(); }
 Planet* Star::Get_Planet_At(int index) { return Planets[index]; }
+void Star::Draw_Body() const {
+    if (Textured) {
+        float Rotation = GetTime() * Rotation_Vel;
+        Matrix transform = MatrixMultiply(
+            MatrixRotate(Rotation_Axis, Rotation * DEG2RAD),
+            MatrixTranslate(Pos.x, Pos.y, Pos.z)
+        );
+        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { 1.0f, 1.0f, 1.0f }, WHITE);
+    }
+    else {
+        DrawSphere(Pos, Radius, Body_Color);
+    }
 
+}
 void Star::CheckDelete(CelestialBody* B) {
     for (int i = Planets.size() - 1; i >= 0; i--) {
         if (Planets[i] == B) {

@@ -1,12 +1,22 @@
 #include "Planet.h"
 
 
-Planet::Planet(String name, Vector3 p, Vector3 v, float m, float r, Color color,
-    String env, bool life, String note) : CelestialBody(name, p, v, m, r, color),
-    Environment(env), Life(life), Note(note) {}
+Planet::Planet(String name, Vector3 p, Vector3 v, float m, float r, Color color,String env, bool life)
+    : CelestialBody(name, p, v, m, r, color),Environment(env), Life(life), 
+    Rotation_Axis({ 0.0f,1.0f,0.0f }),Rotation_Vel(20.0f){} 
 
 Planet::Planet(String name, Vector3 p, Vector3 v, float m, float r, Color color):
-        CelestialBody(name,p,v,m,r,color),Environment("Unknown"),  Life (false), Note ( "nothing"){}
+        CelestialBody(name,p,v,m,r,color),Environment("Unknown"),  Life (false),
+    Rotation_Axis({ 0.0f,1.0f,0.0f }), Rotation_Vel(20.0f) {
+}
+
+Planet::Planet(String name, Vector3 p, Vector3 v, float m, float r, Color color, String env, bool life,Vector3 rot_axis,float rot_Vel)
+    : CelestialBody(name, p, v, m, r, color), Environment(env), Life(life), Rotation_Axis(rot_axis)
+    , Rotation_Vel(rot_Vel) {}
+
+Planet::Planet(String name, Vector3 p, Vector3 v, float m, float r, Color color, Vector3 rot_axis, float rot_Vel) :
+    CelestialBody(name, p, v, m, r, color), Environment("Unknown"), Life(false), Rotation_Axis(rot_axis)
+    , Rotation_Vel(rot_Vel) {}
 
 void Planet::Add_Moon(Moon* moon)
 {
@@ -63,8 +73,6 @@ void Planet::Place_Moon_In_Orbit(Moon* moon, float distance_multiplier)
     }
 }
 
-
-
 void Planet::Check_Escape(Dynamic_array<CelestialBody*>& free_bodies)
 {
     for (int i = 0; i < Moons.size(); )
@@ -88,15 +96,26 @@ void Planet::Check_Escape(Dynamic_array<CelestialBody*>& free_bodies)
     }
 }
 
-
-
 int Planet::Get_Number_Of_Moons() { return Moons.size(); }
 Moon* Planet::Get_Moon_At(int index) { return Moons[index]; }
 
 Planet:: ~Planet() {
     Moons.clear();
 }
+void Planet::Draw_Body() const {
+    if (Textured) {
+        float Rotation = GetTime() * Rotation_Vel;
+        Matrix transform = MatrixMultiply(
+            MatrixRotate(Rotation_Axis, Rotation * DEG2RAD),
+            MatrixTranslate(Pos.x, Pos.y, Pos.z)
+        );
+        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { 1.0f, 1.0f, 1.0f }, WHITE);
+    }
+    else {
+        DrawSphere(Pos, Radius, Body_Color);
+    }
 
+}
 
 void Planet::CheckDelete(CelestialBody* B) {
 

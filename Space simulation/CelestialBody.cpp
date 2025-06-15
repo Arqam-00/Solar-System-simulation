@@ -96,7 +96,7 @@ void CelestialBody::Apply_Collision_Deformation(float impactEnergy)
 
 
 
-void CelestialBody::Draw_Body() const {
+ void CelestialBody::Draw_Body() const {
     if (Textured) {
         DrawModel(SphereModel, Pos, 1.0f, WHITE);
     }
