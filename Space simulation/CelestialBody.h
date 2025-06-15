@@ -24,7 +24,8 @@ protected:
     Dynamic_array<Vector3> Trail;
     int Max_Trail_Length = 50000;
     float DeformationAmount = 0.0f;
-
+    bool Textured;
+    Model SphereModel;
 public:
     friend class Collision;
     virtual bool CheckDelete() {
@@ -39,6 +40,7 @@ public:
         Radius = 1.0f;
         StableRadius = Radius;
         Body_Color = WHITE;
+        Textured = false;
     }
 
     CelestialBody(String n, Vector3 Pos, Vector3 Vel, const float Mass, const float Radius, Color Body_Color) {
@@ -50,6 +52,8 @@ public:
         this->StableRadius = Radius;
         this->Body_Color = Body_Color;
         this->Acc = { 0.0f, 0.0f, 0.0f };
+        Textured = false;
+
     }
 
     CelestialBody& operator=(const CelestialBody& other) {
@@ -69,6 +73,9 @@ public:
     }
     virtual ~CelestialBody() {
         Trail.clear();
+        if (Textured) {
+            UnloadModel(SphereModel);
+        }
     }
 
     void Reset_Acceleration() {
@@ -83,7 +90,15 @@ public:
         Vector3 Acceleration_Contribution = Vector3Scale(Direction, Force / Mass);
         Acc = Vector3Add(Acc, Acceleration_Contribution);
     }
-
+    virtual void Apply_Texture(Texture2D& texture) {
+        if (!Textured) {
+            Mesh sphereMesh = GenMeshSphere(Radius, 64, 64);
+            SphereModel = LoadModelFromMesh(sphereMesh);
+            SphereModel.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
+            UploadMesh(&sphereMesh, true);
+            Textured = true;
+        }
+    }
     virtual void Update_Position(float Delta_Time) {
         Vel = Vector3Add(Vel, Vector3Scale(Acc, Delta_Time));
         Pos = Vector3Add(Pos, Vector3Scale(Vel, Delta_Time));
@@ -111,7 +126,12 @@ public:
 
 
     virtual void Draw_Body() const {
-        DrawSphere(Pos, Radius, Body_Color);
+        if (Textured) {
+            DrawModel(SphereModel, Pos, 1.0f, WHITE);
+        }
+        else {
+            DrawSphere(Pos, Radius, Body_Color);
+        }
     }
 
     void Draw_Trail() const {

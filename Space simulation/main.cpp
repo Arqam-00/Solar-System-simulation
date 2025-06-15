@@ -45,10 +45,10 @@ int main()
     Dynamic_array<Star*> Stars;
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
-
+    
     Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, -5 }, 120000, 50, YELLOW);
-    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
-    Stars.push(sun2);
+    //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
+    //Stars.push(sun2);
 
     Stars.push(sun);
 
@@ -116,7 +116,7 @@ int main()
     {
         Flatten_Star(Stars[i], All_Bodies);
     }
-
+    
     Free_Bodies.push(new CelestialBody("Asteroid1", { 180, -50, 0 }, { 3, 7.5f, 0 }, 10, 1, DARKGRAY));
     Free_Bodies.push(new CelestialBody("Asteroid2", { 220, 60, 0 }, { -3, 7.2f, 0 }, 5, 0.8f, LIGHTGRAY));
     Free_Bodies.push(new CelestialBody("Comet1", { 300, -150, 0 }, { 2.5f, 5.8f, 0 }, 20, 1.5f, WHITE));
@@ -131,9 +131,33 @@ int main()
     int count = 0;
     bool Paused = false;
     bool Show_Trail = true;
+
+    Texture2D texture[10] = { LoadTexture("Textures&shaders/Sun2.png")
+    ,LoadTexture("Textures&shaders/Mercury.png")
+    ,LoadTexture("Textures&shaders/Venus.jpg")
+    ,LoadTexture("Textures&shaders/Earth.png")
+    ,LoadTexture("Textures&shaders/Mars.png")
+    ,LoadTexture("Textures&shaders/Jupiter.png")
+    ,LoadTexture("Textures&shaders/Saturn.png")
+    ,LoadTexture("Textures&shaders/Uranus.png")
+    ,LoadTexture("Textures&shaders/Neptune.png")
+    ,LoadTexture("Textures&shaders/Moon.png")
+    };
+    Stars[0]->Apply_Texture(texture[0]);
+    mercury->Apply_Texture(texture[1]);
+    venus->Apply_Texture(texture[2]);
+    earth->Apply_Texture(texture[3]);
+    mars->Apply_Texture(texture[4]);
+    jupiter->Apply_Texture(texture[5]);
+    saturn->Apply_Texture(texture[6]);
+    uranus->Apply_Texture(texture[7]);
+    neptune->Apply_Texture(texture[8]);
+    moon->Apply_Texture(texture[9]);
+
+
+
     while (!WindowShouldClose())
     {
-        cout << Stars.size();
 
         float Delta_Time = GetFrameTime();
         CelestialBody* HoveredBody = nullptr;
@@ -224,6 +248,8 @@ int main()
                 All_Bodies[i]->Draw_Trail();
             }
         }
+        //Vector3 position = { 1.0f, 1.2f, 3.0f };
+        //DrawModel(sphereModel, position, 1.0f, WHITE);
 
         EndMode3D();
         DrawFPS(10, 10);
@@ -253,7 +279,7 @@ int main()
 
     for (int i = 0; i < All_Bodies.size(); i++) delete All_Bodies[i];
     All_Bodies.clear();
-
+    
 
 
     CloseWindow();

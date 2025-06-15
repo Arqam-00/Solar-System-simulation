@@ -16,7 +16,7 @@ private:
 public:
     Star(String name, Vector3 p, Vector3 v, float m, float r, Color color)
         : CelestialBody(name, p, v, m, r, color)
-        , Shine_Shader(LoadShader(0, "star.fs"))
+        , Shine_Shader(LoadShader(0, "Textures&Shaders/star.fs"))
         , centerLoc(GetShaderLocation(Shine_Shader, "center"))
         , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
         , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
@@ -25,7 +25,7 @@ public:
     }
     Star(String name, Vector3 p, Vector3 v, float m, float r, Color color ,float light,float heat)
         : CelestialBody(name, p, v, m, r, color),Intensity_Of_Light(light),temperature(heat)
-        ,Shine_Shader ( LoadShader(0, "star.fs"))
+        ,Shine_Shader ( LoadShader(0, "Textures&Shaders/star.fs"))
         ,centerLoc ( GetShaderLocation(Shine_Shader, "center"))
         ,resolutionLoc ( GetShaderLocation(Shine_Shader, "resolution"))
         ,colorLoc ( GetShaderLocation(Shine_Shader, "starColor"))
