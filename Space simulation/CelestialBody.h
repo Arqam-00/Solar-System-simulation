@@ -99,6 +99,7 @@ public:
             Textured = true;
         }
     }
+    
     virtual void Update_Position(float Delta_Time) {
         Vel = Vector3Add(Vel, Vector3Scale(Acc, Delta_Time));
         Pos = Vector3Add(Pos, Vector3Scale(Vel, Delta_Time));
@@ -134,20 +135,23 @@ public:
         }
     }
 
-    void Draw_Trail() const {
+    virtual void Draw_Trail() const {
         for (int i = 1; i < Trail.size(); i++) {
             DrawLine3D(Trail[i - 1], Trail[i], Body_Color);
-         }
+        }
     }
     virtual void Draw_Info_Box() const {
             Vector2 mousePos = GetMousePosition();
             float boxWidth = 200;
             float boxHeight = 100;
 
-            DrawRectangle(mousePos.x + 10, mousePos.y + 10, boxWidth, boxHeight, Fade(BLACK, 0.7f)); // Background
+            DrawRectangle(mousePos.x + 10, mousePos.y + 10, boxWidth, boxHeight, Fade(GRAY, 0.7f));
             DrawText(Name.C_Str(), mousePos.x + 20, mousePos.y + 20, 20, WHITE);
             DrawText(TextFormat("Mass: %.2f", Mass), mousePos.x + 20, mousePos.y + 40, 20, WHITE);
             DrawText(TextFormat("Radius: %.2f", Radius), mousePos.x + 20, mousePos.y + 60, 20, WHITE);
+            DrawText(TextFormat(String("Coords: X: " + String(Pos.x) + " Y: " + String(Pos.y) + " Z: "+String(Pos.z)).C_Str()), mousePos.x + 20, mousePos.y + 80, 20, WHITE);
+
+
     }
 
     const Vector3& Get_Velocity() const { return Vel; }

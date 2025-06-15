@@ -16,17 +16,26 @@ void Meteor::LoadModels() {
         Loaded = true;
     }
 }
+void Meteor:: Draw_Trail() const {
+    if (trail) {
+        for (int i = 1; i < Trail.size(); i++) {
+            DrawLine3D(Trail[i - 1], Trail[i], Body_Color);
+        }
+    }
+}
 
 Meteor::Meteor(String n, Vector3 pos, Vector3 vel, float mass, float radius, Color body_color)
-    : CelestialBody(n, pos, vel, mass, radius, body_color) {
+    : CelestialBody(n, pos, vel, mass, radius, body_color)  {
 
     Max_Trail_Length = 500;
-
+    trail = true;
     if (!Loaded) LoadModels(); 
     meteor_model = model[rand() % 8];
     meteor_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].color = body_color;
 }
-
+void Meteor::toggle() {
+    trail = !trail;
+}
 Meteor::~Meteor() {}
 
 void Meteor::Update_Position(float delta_time) {

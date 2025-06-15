@@ -27,7 +27,7 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
         A.Apply_Collision_Deformation(kinetic_energy);
         B.Apply_Collision_Deformation(kinetic_energy);
 
-        if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass() * 10)
+        if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass() * 100)
         {
             Merge(A, B, 1.0f, bodies);
         }

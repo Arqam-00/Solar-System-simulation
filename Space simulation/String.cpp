@@ -329,7 +329,7 @@ void String::Trim() {
 }
 
 
-String::String(const int a) {
+String::String(const float a) {
 	int i = 1;
 	int b = a;
 	int c = a;

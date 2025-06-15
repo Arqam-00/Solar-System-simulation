@@ -49,7 +49,7 @@ public:
 	void Insert_At(int i, const char* newSub);
 	void Insert_At(int i, char newSub);
 
-	String(const int a);
+	String(const float a);
 	String itos(const int a);
 	void Replace_First(const char c);
 	int stoi(const String& s);

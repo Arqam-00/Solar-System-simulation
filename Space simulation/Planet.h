@@ -28,7 +28,7 @@ public:
     {
         float desired_distance = this->Get_Radius() * distance_multiplier + moon->Get_Radius();
         Vector3 orbit_axis = Vector3Normalize(Vector3CrossProduct(this->Vel, { 0, 1, 0 }));
-        if (Vector3Length(orbit_axis) < 0.001f) orbit_axis = { 0, 1, 0 };
+        if (Vector3Length(orbit_axis) < 0.001f) orbit_axis = { 0, 0, 1 };
         float min_separation = moon->Get_Radius() * 2.0f;
 
         bool position_ok = false;
@@ -125,6 +125,16 @@ public:
         }
        
 
+    }
+    void Add_Ring(int num) {
+
+        float ring_dis;
+        for (int i = 0; i < num; i++) {
+            Moon* m = new Moon("RingParticle", { 0,0,0 }, {0,0,0}, 0.01f, 0.5f, LIGHTGRAY);
+            m->Toggle_Trail();
+            ring_dis = GetRandomValue(3.0f, 3.8f);
+            this->Place_Moon_In_Orbit(m,3.5);
+        }
     }
 
 

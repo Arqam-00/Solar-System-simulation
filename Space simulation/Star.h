@@ -2,7 +2,8 @@
 #define STAR_H
 
 #include "Planet.h"
-
+#include "Meteor.h"
+#include "Dust.h"
 class Star : public CelestialBody
 {
 private:
@@ -115,13 +116,9 @@ public:
 
     int Get_Number_Of_Planets() { return Planets.size(); }
     Planet* Get_Planet_At(int index) { return Planets[index]; }
-    virtual ~Star() {
-        UnloadShader(Shine_Shader);
-        Planets.clear();
-
-    }
-
     
+
+
     void CheckDelete(CelestialBody* B) {
         for (int i = Planets.size() - 1; i >=0 ;i--) {
             if (Planets[i] == B) {
@@ -145,7 +142,7 @@ public:
         Vector2 resolution = { (float)screenWidth, (float)screenHeight };
 
         float starRadius = Radius * 0.5f;
-        float glowStrength = Radius * 5.0f;
+        float glowStrength = Radius * 2.0f;
 
         Vector4 normalized = ColorNormalize(Body_Color);
         Vector3 color = { normalized.x, normalized.y, normalized.z };
@@ -160,9 +157,39 @@ public:
         DrawRectangle(0, 0, screenWidth, screenHeight, BLACK);
         EndShaderMode();
     }
+    void Add_Asteroid_Belt(int num_asteroid, float min_distance, float max_distance, Dynamic_array<CelestialBody*>& bodies)
+    {
+        Vector3 orbit_axis = { 0, 1, 0 };
+
+        for (int i = 0; i < num_asteroid; i++)
+        {
+            float distance = min_distance + ((float)GetRandomValue(0, 10000) / 10000.0f) * (max_distance - min_distance);
+
+            float inclination = DEG2RAD * GetRandomValue(-5, 5);
+            float phase = DEG2RAD * GetRandomValue(0, 360); 
+
+            Vector3 reference = (fabs(orbit_axis.y) < 0.99f) ? Vector3{ 1, 0, 0 } : Vector3{ 0, 0, 1 };
+            Vector3 base_direction = Vector3Normalize(Vector3CrossProduct(orbit_axis, reference));
+
+            Matrix phase_rot = MatrixRotate(orbit_axis, phase);
+            Vector3 orbit_direction = Vector3Transform(base_direction, phase_rot);
+
+            Vector3 incl_axis = Vector3Normalize(Vector3CrossProduct(orbit_axis, orbit_direction));
+            Matrix incl_rot = MatrixRotate(incl_axis, inclination);
+            orbit_direction = Vector3Transform(orbit_direction, incl_rot);
+
+            Vector3 asteroid_pos = Vector3Add(this->Pos, Vector3Scale(orbit_direction, distance));
+
+            float speed = sqrt(G * (this->Mass) / distance);
+            Vector3 tangent = Vector3Normalize(Vector3CrossProduct(orbit_axis, orbit_direction));
+            Vector3 vel = Vector3Add(this->Vel, Vector3Scale(tangent, speed));
+
+            bodies.push(new Meteor("Asteroid", asteroid_pos, vel, GetRandomValue(0.1f, 5.0f), GetRandomValue(1.0f, 3.0f), DARKGRAY));
+        }
+    }
+
+    };
 
 
-
-};
 
 #endif

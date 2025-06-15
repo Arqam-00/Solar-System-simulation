@@ -28,6 +28,7 @@ void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
             flat.push(planet->Get_Moon_At(j));
         }
     }
+
 }
 
 int main()
@@ -46,9 +47,9 @@ int main()
     Dynamic_array<CelestialBody*> Free_Bodies;
     Dynamic_array<CelestialBody*> All_Bodies;
     
-    Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, -5 }, 120000, 50, YELLOW);
-    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
-    Stars.push(sun2);
+    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 10000, 45, YELLOW);
+    //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
+    //Stars.push(sun2);
 
     Stars.push(sun);
 
@@ -67,17 +68,17 @@ int main()
     sun->Place_Planet_In_Orbit(mars,3.8);
 
 
-    sun->Place_Planet_In_Orbit(jupiter,4.6);
-    sun->Place_Planet_In_Orbit(saturn,4.8);
-    sun->Place_Planet_In_Orbit(uranus,5.3);
-    sun->Place_Planet_In_Orbit(neptune,5.7);
+    sun->Place_Planet_In_Orbit(jupiter,7.3);
+    sun->Place_Planet_In_Orbit(saturn,7.9);
+    sun->Place_Planet_In_Orbit(uranus,8.4);
+    sun->Place_Planet_In_Orbit(neptune,9.0);
 
     Moon* moon = new Moon("Moon", { 0, 0, 0 }, { 0, 7.0f, .0 }, 5, 1.1f, LIGHTGRAY);
     Moon* phobos = new Moon("Phobos", { 155, 3, 0 }, { 0, 7.0f, 0 }, 1.2, 0.8f, DARKGRAY);
     Moon* europa = new Moon("Europa", { 260, 6, 20 }, { 0, 6.2f, 0 }, 3, 1.2f, LIGHTGRAY);
     earth->Place_Moon_In_Orbit(moon,1.7);
     mars->Place_Moon_In_Orbit(phobos, 1.8);
-    jupiter->Place_Moon_In_Orbit(europa, 1.8);
+    jupiter->Place_Moon_In_Orbit(europa, 2.8);
 
 
 
@@ -88,10 +89,10 @@ int main()
     jupiter->Place_Moon_In_Orbit(io, 2.1f);
 
     Moon* ganymede = new Moon("Ganymede", { 290, 20, -30 }, { 0, 6.0f, 3.0f }, 5, 1.5f, BROWN);
-    jupiter->Place_Moon_In_Orbit(ganymede, 1.9f);
+    jupiter->Place_Moon_In_Orbit(ganymede, 2.9f);
 
     Moon* callisto = new Moon("Callisto", { 220, 20, 20 }, { 0, 6.7f, 0 }, 4, 1.3f, DARKBROWN);
-    jupiter->Place_Moon_In_Orbit(callisto, 1.7f);
+    jupiter->Place_Moon_In_Orbit(callisto, 2.7f);
 
     Moon* titan = new Moon("Titan", { 340, -15, 0 }, { 0, 5.0f, 0 }, 5, 1.3f, BEIGE);
     saturn->Place_Moon_In_Orbit(titan, 1.5);
@@ -100,17 +101,16 @@ int main()
     saturn->Place_Moon_In_Orbit(enceladus, 1.5);
 
     Moon* titania = new Moon("Titania", { 420, 15, 0 }, { 0, 4.4f, 0 }, 3, 1.1f, SKYBLUE);
-    uranus->Place_Moon_In_Orbit(titania, 1.5);
+    uranus->Place_Moon_In_Orbit(titania, 2.5);
 
     Moon* oberon = new Moon("Oberon", { 430, -20, 10 }, { 0, 4.2f, 0 }, 3, 1.0f, DARKBLUE);
-    uranus->Place_Moon_In_Orbit(oberon, 1.5);
+    uranus->Place_Moon_In_Orbit(oberon, 2.5);
 
     Moon* triton = new Moon("Triton", { 510, 18, 0 }, { 0, 4.0f, 0 }, 4, 1.2f, WHITE);
-    neptune->Place_Moon_In_Orbit(triton, 1.5);
+    neptune->Place_Moon_In_Orbit(triton, 2.5);
 
-    for (int i = 0; i < 5; i++) {
-        saturn->Place_Moon_In_Orbit(new Moon("Moon of saturn "+(char)i, { 335, 10, 20 }, { 0, 5.3f, 0 }, 0.01f, 0.05f, LIGHTGRAY), 1.9 + i);
-    }
+    saturn->Add_Ring(30);
+    sun->Add_Asteroid_Belt(80, 230, 290, Free_Bodies);
 
     for (int i = 0; i < Stars.size(); i++)
     {
@@ -154,8 +154,7 @@ int main()
     uranus->Apply_Texture(texture[7]);
     neptune->Apply_Texture(texture[8]);
     moon->Apply_Texture(texture[9]);
-    Stars[1]->Apply_Texture(texture[10]);
-
+    //Stars[1]->Apply_Texture(texture[10]);
 
     while (!WindowShouldClose())
     {
