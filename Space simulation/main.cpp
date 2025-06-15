@@ -47,8 +47,8 @@ int main()
     Dynamic_array<CelestialBody*> All_Bodies;
     
     Star* sun = new Star("Sun", { 0, 0, 0 }, { 5, 0, -5 }, 120000, 50, YELLOW);
-    //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
-    //Stars.push(sun2);
+    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
+    Stars.push(sun2);
 
     Stars.push(sun);
 
@@ -132,7 +132,7 @@ int main()
     bool Paused = false;
     bool Show_Trail = true;
 
-    Texture2D texture[10] = { LoadTexture("Textures&shaders/Sun2.png")
+    Texture2D texture[11] = { LoadTexture("Textures&shaders/Sun2.png")
     ,LoadTexture("Textures&shaders/Mercury.png")
     ,LoadTexture("Textures&shaders/Venus.jpg")
     ,LoadTexture("Textures&shaders/Earth.png")
@@ -141,7 +141,8 @@ int main()
     ,LoadTexture("Textures&shaders/Saturn.png")
     ,LoadTexture("Textures&shaders/Uranus.png")
     ,LoadTexture("Textures&shaders/Neptune.png")
-    ,LoadTexture("Textures&shaders/Moon.png")
+    ,LoadTexture("Textures&shaders/Moon.png"),
+     LoadTexture("Textures&shaders/Sun.png")
     };
     Stars[0]->Apply_Texture(texture[0]);
     mercury->Apply_Texture(texture[1]);
@@ -153,7 +154,7 @@ int main()
     uranus->Apply_Texture(texture[7]);
     neptune->Apply_Texture(texture[8]);
     moon->Apply_Texture(texture[9]);
-
+    Stars[1]->Apply_Texture(texture[10]);
 
 
     while (!WindowShouldClose())
