@@ -3,7 +3,6 @@
 
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
-using namespace std;
 template<class T>
 
 class Dynamic_array {
@@ -284,4 +283,4 @@ public:
 	}
 };
 
-#endif // DYNAMIC_ARRAY_H
+#endif// DYNAMIC_ARRAY_H

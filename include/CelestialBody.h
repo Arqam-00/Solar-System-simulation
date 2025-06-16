@@ -1,13 +1,13 @@
 #ifndef CELESTIALBODY_H
 #define CELESTIALBODY_H
 
-using namespace std;
 
 #include "raylib.h"
 #include "raymath.h"
 #include "math.h"
 #include "Dynamic_array.h"
-#include "String.h"
+#include "MyString.h"
+
 
 class CelestialBody {
 protected:

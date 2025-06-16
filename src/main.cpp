@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "raymath.h"
 #include <iostream>
-#include "String.h"
+#include "MyString.h"
 #include "Dynamic_Array.h"
 #include "CelestialBody.h"
 #include "Star.h"

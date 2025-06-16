@@ -1,5 +1,5 @@
 #include "Meteor.h"
-
+//#include<string.h>
 Model Meteor::model[8];
 bool Meteor::Loaded = false;
 
