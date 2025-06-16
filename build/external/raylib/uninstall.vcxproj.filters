@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\12\source\repos\Space simulation\build\CMakeFiles\0fb5a9ee5ad77fc8fc3f2c8304ecfbd0\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\12\source\repos\Space simulation\external\raylib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\12\source\repos\Space simulation\build\external\raylib\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{42B5BA91-4B05-3D15-ADCA-F754F33B4EC5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

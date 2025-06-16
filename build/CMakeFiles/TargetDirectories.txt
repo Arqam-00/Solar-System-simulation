@@ -3,6 +3,7 @@ C:/Users/12/source/repos/Space simulation/build/CMakeFiles/PACKAGE.dir
 C:/Users/12/source/repos/Space simulation/build/CMakeFiles/INSTALL.dir
 C:/Users/12/source/repos/Space simulation/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/12/source/repos/Space simulation/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/12/source/repos/Space simulation/build/external/raylib/CMakeFiles/uninstall.dir
 C:/Users/12/source/repos/Space simulation/build/external/raylib/CMakeFiles/PACKAGE.dir
 C:/Users/12/source/repos/Space simulation/build/external/raylib/CMakeFiles/INSTALL.dir
 C:/Users/12/source/repos/Space simulation/build/external/raylib/CMakeFiles/ALL_BUILD.dir

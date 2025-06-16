@@ -313,7 +313,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <Object Include="C:\Users\12\source\repos\Space simulation\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_window.obj" />
     <Object Include="C:\Users\12\source\repos\Space simulation\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\wgl_context.obj" />
     <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\raylib.h" />
-    <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\rcamera.h" />
     <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\rlgl.h" />
     <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\raymath.h" />
   </ItemGroup>

@@ -39,6 +39,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "raylib", "raylib\raylib.vcx
 		{0D8B943B-CA7F-3D8C-AEE5-1E1150F397C2} = {0D8B943B-CA7F-3D8C-AEE5-1E1150F397C2}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uninstall", "uninstall.vcxproj", "{2518272B-CE23-3233-AD70-8EC34378B7DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE87E1ED-159A-32F6-A6D7-9FA73AFF21D9} = {AE87E1ED-159A-32F6-A6D7-9FA73AFF21D9}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "update_mappings", "raylib\external\glfw\src\update_mappings.vcxproj", "{ED6E6A89-F211-319D-BCEA-99C46F6654B8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AE87E1ED-159A-32F6-A6D7-9FA73AFF21D9} = {AE87E1ED-159A-32F6-A6D7-9FA73AFF21D9}
@@ -92,6 +97,10 @@ Global
 		{D1DB06CC-D89D-30FD-B065-E75E0D897EA9}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
 		{D1DB06CC-D89D-30FD-B065-E75E0D897EA9}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{D1DB06CC-D89D-30FD-B065-E75E0D897EA9}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{2518272B-CE23-3233-AD70-8EC34378B7DD}.Debug|x64.ActiveCfg = Debug|x64
+		{2518272B-CE23-3233-AD70-8EC34378B7DD}.Release|x64.ActiveCfg = Release|x64
+		{2518272B-CE23-3233-AD70-8EC34378B7DD}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{2518272B-CE23-3233-AD70-8EC34378B7DD}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{ED6E6A89-F211-319D-BCEA-99C46F6654B8}.Debug|x64.ActiveCfg = Debug|x64
 		{ED6E6A89-F211-319D-BCEA-99C46F6654B8}.Release|x64.ActiveCfg = Release|x64
 		{ED6E6A89-F211-319D-BCEA-99C46F6654B8}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64

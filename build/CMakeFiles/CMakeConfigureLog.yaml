@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.10+8b8e13593 for .NET Framework
-      Build started 6/15/2025 7:25:24 PM.
+      Build started 6/16/2025 10:48:53 AM.
       
       Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\4.0.3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.32
+      Time Elapsed 00:00:00.63
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -79,7 +79,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.10+8b8e13593 for .NET Framework
-      Build started 6/15/2025 7:25:24 PM.
+      Build started 6/16/2025 10:48:53 AM.
       
       Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\4.0.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -108,7 +108,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.29
+      Time Elapsed 00:00:00.57
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-ozs348"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-ozs348"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-erusy3"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-erusy3"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -137,40 +137,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-ozs348'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-erusy3'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f76ca.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ff0fa.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:25 PM.
+        Build started 6/16/2025 10:48:54 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozs348\\cmTC_f76ca.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-erusy3\\cmTC_ff0fa.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_f76ca.dir\\Debug\\".
+          Creating directory "cmTC_ff0fa.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozs348\\Debug\\".
-          Creating directory "cmTC_f76ca.dir\\Debug\\cmTC_f76ca.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-erusy3\\Debug\\".
+          Creating directory "cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_f76ca.dir\\Debug\\cmTC_f76ca.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_f76ca.dir\\Debug\\cmTC_f76ca.tlog\\unsuccessfulbuild".
+          Creating "cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f76ca.dir\\Debug\\\\" /Fd"cmTC_f76ca.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ff0fa.dir\\Debug\\\\" /Fd"cmTC_ff0fa.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f76ca.dir\\Debug\\\\" /Fd"cmTC_f76ca.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ff0fa.dir\\Debug\\\\" /Fd"cmTC_ff0fa.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozs348\\Debug\\cmTC_f76ca.exe" /INCREMENTAL /ILK:"cmTC_f76ca.dir\\Debug\\cmTC_f76ca.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-ozs348/Debug/cmTC_f76ca.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-ozs348/Debug/cmTC_f76ca.lib" /MACHINE:X64  /machine:x64 cmTC_f76ca.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_f76ca.vcxproj -> C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozs348\\Debug\\cmTC_f76ca.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-erusy3\\Debug\\cmTC_ff0fa.exe" /INCREMENTAL /ILK:"cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-erusy3/Debug/cmTC_ff0fa.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-erusy3/Debug/cmTC_ff0fa.lib" /MACHINE:X64  /machine:x64 cmTC_ff0fa.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_ff0fa.vcxproj -> C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-erusy3\\Debug\\cmTC_ff0fa.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_f76ca.dir\\Debug\\cmTC_f76ca.tlog\\unsuccessfulbuild".
-          Touching "cmTC_f76ca.dir\\Debug\\cmTC_f76ca.tlog\\cmTC_f76ca.lastbuildstate".
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozs348\\cmTC_f76ca.vcxproj" (default targets).
+          Deleting file "cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.tlog\\unsuccessfulbuild".
+          Touching "cmTC_ff0fa.dir\\Debug\\cmTC_ff0fa.tlog\\cmTC_ff0fa.lastbuildstate".
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-erusy3\\cmTC_ff0fa.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.29
+        Time Elapsed 00:00:00.57
         
       exitCode: 0
   -
@@ -210,10 +210,10 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-22qh3u"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-22qh3u"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-uxhmwi"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-uxhmwi"
     cmakeVariables:
-      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -221,40 +221,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-22qh3u'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-uxhmwi'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bf44c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b5292.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:25 PM.
+        Build started 6/16/2025 10:48:55 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22qh3u\\cmTC_bf44c.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uxhmwi\\cmTC_b5292.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_bf44c.dir\\Debug\\".
+          Creating directory "cmTC_b5292.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22qh3u\\Debug\\".
-          Creating directory "cmTC_bf44c.dir\\Debug\\cmTC_bf44c.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uxhmwi\\Debug\\".
+          Creating directory "cmTC_b5292.dir\\Debug\\cmTC_b5292.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_bf44c.dir\\Debug\\cmTC_bf44c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_bf44c.dir\\Debug\\cmTC_bf44c.tlog\\unsuccessfulbuild".
+          Creating "cmTC_b5292.dir\\Debug\\cmTC_b5292.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b5292.dir\\Debug\\cmTC_b5292.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bf44c.dir\\Debug\\\\" /Fd"cmTC_bf44c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b5292.dir\\Debug\\\\" /Fd"cmTC_b5292.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bf44c.dir\\Debug\\\\" /Fd"cmTC_bf44c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b5292.dir\\Debug\\\\" /Fd"cmTC_b5292.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22qh3u\\Debug\\cmTC_bf44c.exe" /INCREMENTAL /ILK:"cmTC_bf44c.dir\\Debug\\cmTC_bf44c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-22qh3u/Debug/cmTC_bf44c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-22qh3u/Debug/cmTC_bf44c.lib" /MACHINE:X64  /machine:x64 cmTC_bf44c.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_bf44c.vcxproj -> C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22qh3u\\Debug\\cmTC_bf44c.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uxhmwi\\Debug\\cmTC_b5292.exe" /INCREMENTAL /ILK:"cmTC_b5292.dir\\Debug\\cmTC_b5292.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-uxhmwi/Debug/cmTC_b5292.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-uxhmwi/Debug/cmTC_b5292.lib" /MACHINE:X64  /machine:x64 cmTC_b5292.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_b5292.vcxproj -> C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uxhmwi\\Debug\\cmTC_b5292.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_bf44c.dir\\Debug\\cmTC_bf44c.tlog\\unsuccessfulbuild".
-          Touching "cmTC_bf44c.dir\\Debug\\cmTC_bf44c.tlog\\cmTC_bf44c.lastbuildstate".
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22qh3u\\cmTC_bf44c.vcxproj" (default targets).
+          Deleting file "cmTC_b5292.dir\\Debug\\cmTC_b5292.tlog\\unsuccessfulbuild".
+          Touching "cmTC_b5292.dir\\Debug\\cmTC_b5292.tlog\\cmTC_b5292.lastbuildstate".
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-uxhmwi\\cmTC_b5292.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.29
+        Time Elapsed 00:00:00.56
         
       exitCode: 0
   -
@@ -293,54 +293,53 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCCompilerFlag.cmake:56 (cmake_check_compiler_flag)"
       - "external/raylib/cmake/AddIfFlagCompiles.cmake:3 (CHECK_C_COMPILER_FLAG)"
       - "external/raylib/cmake/CompilerFlags.cmake:5 (add_if_flag_compiles)"
-      - "external/raylib/CMakeLists.txt:27 (include)"
+      - "external/raylib/CMakeLists.txt:34 (include)"
     checks:
       - "Performing Test COMPILER_HAS_THOSE_TOGGLES"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-fbcfpa"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-fbcfpa"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-bru5gq"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-bru5gq"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
-      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /TC"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       CMAKE_MODULE_PATH: "C:/Users/12/source/repos/Space simulation/external/raylib/cmake"
     buildResult:
       variable: "COMPILER_HAS_THOSE_TOGGLES"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-fbcfpa'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-bru5gq'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_13acb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d818f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:25 PM.
+        Build started 6/16/2025 10:48:56 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\cmTC_13acb.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\cmTC_d818f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_13acb.dir\\Debug\\".
+          Creating directory "cmTC_d818f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\Debug\\".
-          Creating directory "cmTC_13acb.dir\\Debug\\cmTC_13acb.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\Debug\\".
+          Creating directory "cmTC_d818f.dir\\Debug\\cmTC_d818f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_13acb.dir\\Debug\\cmTC_13acb.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_13acb.dir\\Debug\\cmTC_13acb.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d818f.dir\\Debug\\cmTC_d818f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d818f.dir\\Debug\\cmTC_d818f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_13acb.dir\\Debug\\\\" /Fd"cmTC_13acb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d818f.dir\\Debug\\\\" /Fd"cmTC_d818f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_13acb.dir\\Debug\\\\" /Fd"cmTC_13acb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\src.c"
-        cl : command line  error D8021: invalid numeric argument '/Werror=pointer-arith' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\cmTC_13acb.vcxproj]
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\cmTC_13acb.vcxproj" (default targets) -- FAILED.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d818f.dir\\Debug\\\\" /Fd"cmTC_d818f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\src.c"
+        cl : command line  error D8021: invalid numeric argument '/Werror=pointer-arith' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\cmTC_d818f.vcxproj]
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\cmTC_d818f.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\cmTC_13acb.vcxproj" (default target) (1) ->
+        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\cmTC_d818f.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          cl : command line  error D8021: invalid numeric argument '/Werror=pointer-arith' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fbcfpa\\cmTC_13acb.vcxproj]
+          cl : command line  error D8021: invalid numeric argument '/Werror=pointer-arith' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bru5gq\\cmTC_d818f.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.18
+        Time Elapsed 00:00:00.32
         
       exitCode: 1
   -
@@ -354,51 +353,50 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-v6z1xl"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-v6z1xl"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-gc1sxn"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-gc1sxn"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
-      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /TC"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       CMAKE_MODULE_PATH: "C:/Users/12/source/repos/Space simulation/external/raylib/cmake;C:/Users/12/source/repos/Space simulation/external/raylib/src/external/glfw/CMake/modules"
     buildResult:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-v6z1xl'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-gc1sxn'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b81a9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_42b0f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:26 PM.
+        Build started 6/16/2025 10:48:56 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\cmTC_b81a9.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\cmTC_42b0f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_b81a9.dir\\Debug\\".
+          Creating directory "cmTC_42b0f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\Debug\\".
-          Creating directory "cmTC_b81a9.dir\\Debug\\cmTC_b81a9.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\Debug\\".
+          Creating directory "cmTC_42b0f.dir\\Debug\\cmTC_42b0f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_b81a9.dir\\Debug\\cmTC_b81a9.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_b81a9.dir\\Debug\\cmTC_b81a9.tlog\\unsuccessfulbuild".
+          Creating "cmTC_42b0f.dir\\Debug\\cmTC_42b0f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_42b0f.dir\\Debug\\cmTC_42b0f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b81a9.dir\\Debug\\\\" /Fd"cmTC_b81a9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42b0f.dir\\Debug\\\\" /Fd"cmTC_42b0f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b81a9.dir\\Debug\\\\" /Fd"cmTC_b81a9.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42b0f.dir\\Debug\\\\" /Fd"cmTC_42b0f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\src.c"
           src.c
-        C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\cmTC_b81a9.vcxproj]
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\cmTC_b81a9.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\cmTC_42b0f.vcxproj]
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\cmTC_42b0f.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\cmTC_b81a9.vcxproj" (default target) (1) ->
+        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\cmTC_42b0f.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-v6z1xl\\cmTC_b81a9.vcxproj]
+          C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gc1sxn\\cmTC_42b0f.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.18
+        Time Elapsed 00:00:00.32
         
       exitCode: 1
   -
@@ -411,10 +409,10 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-nfetsi"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-nfetsi"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-rkor5u"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-rkor5u"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /TC"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       CMAKE_MODULE_PATH: "C:/Users/12/source/repos/Space simulation/external/raylib/cmake;C:/Users/12/source/repos/Space simulation/external/raylib/src/external/glfw/CMake/modules"
@@ -422,42 +420,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-nfetsi'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-rkor5u'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_39d5b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4cc0a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:26 PM.
+        Build started 6/16/2025 10:48:57 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\cmTC_39d5b.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\cmTC_4cc0a.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_39d5b.dir\\Debug\\".
+          Creating directory "cmTC_4cc0a.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\Debug\\".
-          Creating directory "cmTC_39d5b.dir\\Debug\\cmTC_39d5b.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\Debug\\".
+          Creating directory "cmTC_4cc0a.dir\\Debug\\cmTC_4cc0a.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_39d5b.dir\\Debug\\cmTC_39d5b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_39d5b.dir\\Debug\\cmTC_39d5b.tlog\\unsuccessfulbuild".
+          Creating "cmTC_4cc0a.dir\\Debug\\cmTC_4cc0a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_4cc0a.dir\\Debug\\cmTC_4cc0a.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_39d5b.dir\\Debug\\\\" /Fd"cmTC_39d5b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4cc0a.dir\\Debug\\\\" /Fd"cmTC_4cc0a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_39d5b.dir\\Debug\\\\" /Fd"cmTC_39d5b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4cc0a.dir\\Debug\\\\" /Fd"cmTC_4cc0a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\Debug\\cmTC_39d5b.exe" /INCREMENTAL /ILK:"cmTC_39d5b.dir\\Debug\\cmTC_39d5b.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-nfetsi/Debug/cmTC_39d5b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-nfetsi/Debug/cmTC_39d5b.lib" /MACHINE:X64  /machine:x64 cmTC_39d5b.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\cmTC_39d5b.vcxproj]
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\cmTC_39d5b.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\Debug\\cmTC_4cc0a.exe" /INCREMENTAL /ILK:"cmTC_4cc0a.dir\\Debug\\cmTC_4cc0a.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-rkor5u/Debug/cmTC_4cc0a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-rkor5u/Debug/cmTC_4cc0a.lib" /MACHINE:X64  /machine:x64 cmTC_4cc0a.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\cmTC_4cc0a.vcxproj]
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\cmTC_4cc0a.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\cmTC_39d5b.vcxproj" (default target) (1) ->
+        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\cmTC_4cc0a.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nfetsi\\cmTC_39d5b.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkor5u\\cmTC_4cc0a.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.26
+        Time Elapsed 00:00:00.44
         
       exitCode: 1
   -
@@ -470,10 +468,10 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-tqjqa1"
-      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-tqjqa1"
+      source: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-su8knv"
+      binary: "C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-su8knv"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /TC"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
       CMAKE_MODULE_PATH: "C:/Users/12/source/repos/Space simulation/external/raylib/cmake;C:/Users/12/source/repos/Space simulation/external/raylib/src/external/glfw/CMake/modules"
@@ -481,42 +479,42 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-tqjqa1'
+        Change Dir: 'C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-su8knv'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_53934.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_19a88.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.10+8b8e13593 for .NET Framework
-        Build started 6/15/2025 7:25:26 PM.
+        Build started 6/16/2025 10:48:57 AM.
         
-        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\cmTC_53934.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\cmTC_19a88.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_53934.dir\\Debug\\".
+          Creating directory "cmTC_19a88.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\Debug\\".
-          Creating directory "cmTC_53934.dir\\Debug\\cmTC_53934.tlog\\".
+          Creating directory "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\Debug\\".
+          Creating directory "cmTC_19a88.dir\\Debug\\cmTC_19a88.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_53934.dir\\Debug\\cmTC_53934.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_53934.dir\\Debug\\cmTC_53934.tlog\\unsuccessfulbuild".
+          Creating "cmTC_19a88.dir\\Debug\\cmTC_19a88.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_19a88.dir\\Debug\\cmTC_19a88.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_53934.dir\\Debug\\\\" /Fd"cmTC_53934.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_19a88.dir\\Debug\\\\" /Fd"cmTC_19a88.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35209 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_53934.dir\\Debug\\\\" /Fd"cmTC_53934.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_19a88.dir\\Debug\\\\" /Fd"cmTC_19a88.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\Debug\\cmTC_53934.exe" /INCREMENTAL /ILK:"cmTC_53934.dir\\Debug\\cmTC_53934.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-tqjqa1/Debug/cmTC_53934.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-tqjqa1/Debug/cmTC_53934.lib" /MACHINE:X64  /machine:x64 cmTC_53934.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\cmTC_53934.vcxproj]
-        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\cmTC_53934.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\Debug\\cmTC_19a88.exe" /INCREMENTAL /ILK:"cmTC_19a88.dir\\Debug\\cmTC_19a88.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-su8knv/Debug/cmTC_19a88.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12/source/repos/Space simulation/build/CMakeFiles/CMakeScratch/TryCompile-su8knv/Debug/cmTC_19a88.lib" /MACHINE:X64  /machine:x64 cmTC_19a88.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\cmTC_19a88.vcxproj]
+        Done Building Project "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\cmTC_19a88.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\cmTC_53934.vcxproj" (default target) (1) ->
+        "C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\cmTC_19a88.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tqjqa1\\cmTC_53934.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\12\\source\\repos\\Space simulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-su8knv\\cmTC_19a88.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.27
+        Time Elapsed 00:00:00.42
         
       exitCode: 1
 ...

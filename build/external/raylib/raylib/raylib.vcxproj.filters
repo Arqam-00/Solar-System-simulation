@@ -27,9 +27,6 @@
     <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\raylib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\rcamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\12\source\repos\Space simulation\external\raylib\src\rlgl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
