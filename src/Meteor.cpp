@@ -30,7 +30,7 @@ Meteor::Meteor(String n, Vector3 pos, Vector3 vel, float mass, float radius, Col
     Max_Trail_Length = 500;
     trail = true;
     if (!Loaded) LoadModels(); 
-    meteor_model = model[rand() % 8];
+    meteor_model = model[(int)(Pos.x) % 8];
     meteor_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].color = body_color;
 }
 void Meteor::toggle() {

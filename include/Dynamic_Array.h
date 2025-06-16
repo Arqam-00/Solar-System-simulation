@@ -3,7 +3,6 @@
 
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
-#include <iostream>
 using namespace std;
 template<class T>
 
@@ -77,7 +76,7 @@ public:
 			return data[index];
 		}
 		else {
-			cout << "\nWrong index";
+			//cout << "\nWrong index";
 
 			return data[len - 1];
 		}
@@ -88,7 +87,7 @@ public:
 			return data[index];
 		}
 		else {
-			cout << "\nWrong index";
+			//cout << "\nWrong index";
 
 			return data[len - 1];
 		}
@@ -186,7 +185,7 @@ public:
 			data = temp;
 		}
 		else {
-			cout << "\nGiven capacity is smaller";
+			//cout << "\nGiven capacity is smaller";
 		}
 	}
 	void clear()                         // Clears all elements
@@ -241,7 +240,7 @@ public:
 			return data[index];
 		}
 		else {
-			cout << "\nWrong index";
+			//cout << "\nWrong index";
 			return data[len - 1];
 		}
 	}

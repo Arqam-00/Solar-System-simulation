@@ -91,7 +91,7 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
 
 void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, Dynamic_array<CelestialBody*>& bodies)
 {
-    cout << "Merge" <<A.Name<< endl;
+    cout << "Merge" <<A.Name.C_Str()<< endl;
 
     float absorbed_mass = B.Get_Mass() * merge_fraction;
     float total_mass = A.Get_Mass() + absorbed_mass;
@@ -129,14 +129,14 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
             bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, (A.Get_Mass() ) / (meteor_count * 100), 1.5f, LIGHTGRAY));
         }
     }
-    cout << ":::::::::::" << B.Name << endl;
+    cout << ":::::::::::" << B.Name.C_Str() << endl;
 
 }
 
 void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
     cout << "Partial merge" << endl;
-    cout << A.Name<<":::::::::::" << B.Name << endl;
+    cout << A.Name.C_Str()<<":::::::::::" << B.Name.C_Str() << endl;
 
     if (B.Get_Mass() > A.Get_Mass()) {
         swap(A, B);
@@ -185,7 +185,7 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
 void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
     cout << "Destroy" << endl;
-    cout << A.Name << ":::::::::::" << B.Name << endl;
+    cout << A.Name.C_Str() << ":::::::::::" << B.Name.C_Str() << endl;
 
     A.Mass *= 0.6f;
     B.Mass *= 0.6f;
