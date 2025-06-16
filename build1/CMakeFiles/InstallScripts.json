@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/12/source/repos/Space simulation/build1/cmake_install.cmake",
+		"C:/Users/12/source/repos/Space simulation/build1/external/raylib/cmake_install.cmake",
+		"C:/Users/12/source/repos/Space simulation/build1/external/raylib/raylib/cmake_install.cmake",
+		"C:/Users/12/source/repos/Space simulation/build1/external/raylib/raylib/external/glfw/cmake_install.cmake",
+		"C:/Users/12/source/repos/Space simulation/build1/external/raylib/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,8 +1,10 @@
-#include <iostream>
-using namespace std;
 
 #ifndef STRING_H
 #define STRING_H
+
+
+#include <iostream>
+using namespace std;
 class String {
 	int len;
 	int cap;
@@ -62,4 +64,4 @@ public:
 
 	~String();
 };
-#endif
+#endif STRING_H

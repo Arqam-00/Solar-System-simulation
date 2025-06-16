@@ -1,8 +1,8 @@
-#include<iostream>
+
+#include "String.h"
+//#include<iostream>
 #include <fstream>
 using namespace std;
-#include "String.h"
-
 
 int String::get_len(const char* arr) {
 	int i = 0;
