@@ -33,6 +33,7 @@ public:
     void Shine_Draw(Camera3D camera, int screenWidth, int screenHeight);
     void Add_Asteroid_Belt(int num_asteroid, float min_distance, float max_distance, Dynamic_array<CelestialBody*>& bodies);
     void Draw_Body() const override;
+    void Draw_Info_Box() const override;
     };
 
 

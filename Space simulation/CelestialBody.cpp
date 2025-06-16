@@ -15,16 +15,16 @@ CelestialBody::CelestialBody():
     ,SphereModel(), DeformationAmount(0.0f){
 }
 
-CelestialBody::CelestialBody(String n, Vector3 Pos, Vector3 Vel, const float Mass, const float Radius, Color Body_Color) {
-    this->Name = n;
-    this->Pos = Pos;
-    this->Vel = Vel;
-    this->Mass = Mass;
-    this->Radius = Radius;
-    this->Body_Color = Body_Color;
-    this->Acc = { 0.0f, 0.0f, 0.0f };
-    Textured = false;
-    SphereModel;
+CelestialBody::CelestialBody(String n, Vector3 Pos, Vector3 Vel, const float Mass, const float Radius, Color Body_Color):
+     Name( n)
+    ,Pos ( Pos)
+    ,Vel ( Vel)
+    ,Mass ( Mass)
+    ,Radius ( Radius)
+    ,Body_Color ( Body_Color)
+    , Acc({ 0.0f, 0.0f, 0.0f })
+    ,Textured ( false)
+    ,SphereModel(){
 }
 
 CelestialBody& CelestialBody::operator=(const CelestialBody& other) {

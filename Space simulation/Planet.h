@@ -28,7 +28,7 @@ public:
     virtual ~Planet();
     void CheckDelete(CelestialBody* B);
     void Add_Ring(int num);
-
+    void Draw_Info_Box() const override;
 
 };
 

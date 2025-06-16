@@ -205,4 +205,21 @@ void Star::Add_Asteroid_Belt(int num_asteroid, float min_distance, float max_dis
 
         bodies.push(new Meteor("Asteroid" + String(i), asteroid_pos, vel, GetRandomValue(0.1f, 5.0f), GetRandomValue(1.0f, 3.0f), DARKGRAY));
     }
+
+}
+
+
+void Star::Draw_Info_Box() const {
+    Vector2 mousePos = GetMousePosition();
+    float boxWidth = 250;
+    float boxHeight = 200;
+
+    DrawRectangle(mousePos.x + 10, mousePos.y + 10, boxWidth, boxHeight, Fade(GRAY, 0.7f));
+    DrawText(Name.C_Str(), mousePos.x + 20, mousePos.y + 20, 20, WHITE);
+    DrawText(TextFormat("Mass: %.2f", Mass), mousePos.x + 20, mousePos.y + 40, 20, WHITE);
+    DrawText(TextFormat("Radius: %.2f", Radius), mousePos.x + 20, mousePos.y + 60, 20, WHITE);
+    DrawText(TextFormat("Coords: X: %.2f Y: %.2f Z: %.2f", Pos.x, Pos.y, Pos.z), mousePos.x + 20, mousePos.y + 80, 20, WHITE);
+    DrawText(TextFormat("Planets: %d", Planets.size()), mousePos.x + 20, mousePos.y + 100, 20, WHITE);
+    DrawText(TextFormat("Light Intensity: %.2f", Intensity_Of_Light), mousePos.x + 20, mousePos.y + 120, 20, WHITE);
+    DrawText(TextFormat("Temperature: %.2f K", temperature), mousePos.x + 20, mousePos.y + 140, 20, WHITE);
 }
