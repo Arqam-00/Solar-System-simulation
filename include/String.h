@@ -3,7 +3,6 @@
 #define STRING_H
 
 
-#include <iostream>
 using namespace std;
 class String {
 	int len;
@@ -58,8 +57,8 @@ public:
 	void clear();
 	const char* C_Str() const;
 
-	friend ostream& operator << (ostream& os, const String& s);
-	friend istream& operator >> (istream& is, String& s);
+	/*friend ostream& operator << (ostream& os, const String& s);
+	friend istream& operator >> (istream& is, String& s);*/
 	void Print();
 
 	~String();

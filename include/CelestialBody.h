@@ -6,7 +6,6 @@ using namespace std;
 #include "raylib.h"
 #include "raymath.h"
 #include "math.h"
-#include <iostream>
 #include "Dynamic_array.h"
 #include "String.h"
 

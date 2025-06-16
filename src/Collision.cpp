@@ -2,7 +2,7 @@
 #include "Meteor.h"
 #include "Dust.h"
 #include "raymath.h"
-
+#include <iostream>
 const float G = 0.1f;
 
 void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)

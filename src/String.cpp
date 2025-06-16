@@ -1,7 +1,6 @@
-
 #include "String.h"
-//#include<iostream>
-#include <fstream>
+#include<iostream>
+//#include <fstream>
 using namespace std;
 
 int String::get_len(const char* arr) {
@@ -545,21 +544,21 @@ void String::Insert_At(int i, char newSub) {
 
 
 ostream& operator << (ostream& os, const String& s) {
-	os << s.str;
+	os << s.C_Str();
 	return os;
 }
-istream& operator >> (istream& is, String& s) {
-	char arr[100]{ '\0' };
-	is.getline(arr, 100);
-	s = String(arr);
-	return is;
-}
-ifstream& operator >> (ifstream& ifs, String& s) {
-	char arr[100]{ '\0' };
-	ifs.getline(arr, 100);
-	s = String(arr);
-	return ifs;
-}
+//istream& operator >> (istream& is, String& s) {
+//	char arr[100]{ '\0' };
+//	is.getline(arr, 100);
+//	s = String(arr);
+//	return is;
+//}
+//ifstream& operator >> (ifstream& ifs, String& s) {
+//	char arr[100]{ '\0' };
+//	ifs.getline(arr, 100);
+//	s = String(arr);
+//	return ifs;
+//}
 const char* String::C_Str() const{
 	return str;
 }

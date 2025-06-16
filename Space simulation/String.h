@@ -1,8 +1,9 @@
-#include <iostream>
-using namespace std;
+
 
 #ifndef STRING_H
 #define STRING_H
+
+using namespace std;
 class String {
 	int len;
 	int cap;

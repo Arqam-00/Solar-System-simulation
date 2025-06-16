@@ -4,7 +4,6 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "CelestialBody.h"
-#include <iostream>
 using namespace std;
 
 class Camera_Control
