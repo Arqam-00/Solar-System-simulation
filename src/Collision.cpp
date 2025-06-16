@@ -9,84 +9,50 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
 {
     if (A.Get_Mass() <= 0.0f || B.Get_Mass() <= 0.0f) return;
 
-    if (B.Get_Mass() < A.Get_Mass()) {
+    float Distance = Vector3Distance(A.Get_Position(), B.Get_Position());
+    float Radius_Sum = A.Get_Radius() + B.Get_Radius();
+    if (Distance > Radius_Sum) return;
 
-        float Distance = Vector3Distance(A.Get_Position(), B.Get_Position());
-        float Radius_Sum = A.Get_Radius() + B.Get_Radius();
-
-        if (Distance > Radius_Sum) return;
-
-        Vector3 Relative_Velocity = Vector3Subtract(A.Get_Velocity(), B.Get_Velocity());
-        float Relative_Speed = Vector3Length(Relative_Velocity);
-        float reduced_mass = (A.Get_Mass() * B.Get_Mass()) / (A.Get_Mass() + B.Get_Mass());
-        float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
-        float binding_energy = (3.0f / 5.0f) * G * (A.Get_Mass() * B.Get_Mass()) / Radius_Sum;
-
-
-        Vector3 impactDirection = Vector3Normalize(Vector3Subtract(B.Get_Position(), A.Get_Position()));
-        A.Apply_Collision_Deformation(kinetic_energy);
-        B.Apply_Collision_Deformation(kinetic_energy);
-
-        if (kinetic_energy < 0.3f * binding_energy || A.Get_Mass()>B.Get_Mass() * 100)
-        {
-            Merge(A, B, 1.0f, bodies);
-        }
-        else if (kinetic_energy < 0.7f * binding_energy || A.Get_Mass() < B.Get_Mass() * 2)
-        {
-            Partial_Merge(A, B, bodies);
-        }
-        else if (kinetic_energy < 1.2f * binding_energy)
-        {
-            Semi_Elastic(A, B, bodies);
-        }
-        else if (kinetic_energy < 2.0f * binding_energy)
-        {
-            Glancing(A, B);
-        }
-        else
-        {
-            Destroy(A, B, bodies);
-        }
+    CelestialBody* big = &A;
+    CelestialBody* small = &B;
+    if (B.Get_Mass() > A.Get_Mass()) {
+        big = &B;
+        small = &A;
     }
-    else {
-        float Distance = Vector3Distance(B.Get_Position(), A.Get_Position());
-        float Radius_Sum = B.Get_Radius() + A.Get_Radius();
 
-        if (Distance > Radius_Sum) return;
+    Vector3 Relative_Velocity = Vector3Subtract(big->Get_Velocity(), small->Get_Velocity());
+    float Relative_Speed = Vector3Length(Relative_Velocity);
+    float reduced_mass = (big->Get_Mass() * small->Get_Mass()) / (big->Get_Mass() + small->Get_Mass());
+    float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
+    float binding_energy = (3.0f / 5.0f) * G * (big->Get_Mass() * small->Get_Mass()) / Radius_Sum;
 
-        Vector3 Relative_Velocity = Vector3Subtract(B.Get_Velocity(), A.Get_Velocity());
-        float Relative_Speed = Vector3Length(Relative_Velocity);
-        float reduced_mass = (B.Get_Mass() * A.Get_Mass()) / (B.Get_Mass() + A.Get_Mass());
-        float kinetic_energy = 0.5f * reduced_mass * Relative_Speed * Relative_Speed;
-        float binding_energy = (3.0f / 5.0f) * G * (B.Get_Mass() * A.Get_Mass()) / Radius_Sum;
+    Vector3 impactDirection = Vector3Normalize(Vector3Subtract(small->Get_Position(), big->Get_Position()));
 
+    big->Apply_Collision_Deformation(kinetic_energy);
+    small->Apply_Collision_Deformation(kinetic_energy);
 
-        Vector3 impactDirection = Vector3Normalize(Vector3Subtract(A.Get_Position(), B.Get_Position()));
-        A.Apply_Collision_Deformation(kinetic_energy);
-        B.Apply_Collision_Deformation(kinetic_energy);
-
-        if (kinetic_energy < 0.3f * binding_energy || B.Get_Mass()>A.Get_Mass() * 10)
-        {
-            Merge(A, B, 1.0f, bodies);
-        }
-        else if (kinetic_energy < 0.7f * binding_energy || B.Get_Mass() < A.Get_Mass() * 2)
-        {
-            Partial_Merge(B,A, bodies);
-        }
-        else if (kinetic_energy < 1.2f * binding_energy)
-        {
-            Semi_Elastic(B, A, bodies);
-        }
-        else if (kinetic_energy < 2.0f * binding_energy)
-        {
-            Glancing(B, A);
-        }
-        else
-        {
-            Destroy(B, A, bodies);
-        }
+    if (kinetic_energy < 0.3f * binding_energy || big->Get_Mass() > small->Get_Mass() * 10)
+    {
+        Merge(*big, *small, 1.0f, bodies);
+    }
+    else if (kinetic_energy < 0.7f * binding_energy || big->Get_Mass() < small->Get_Mass() * 2)
+    {
+        Partial_Merge(*big, *small, bodies);
+    }
+    else if (kinetic_energy < 1.2f * binding_energy)
+    {
+        Semi_Elastic(*big, *small, bodies);
+    }
+    else if (kinetic_energy < 2.0f * binding_energy)
+    {
+        Glancing(*big, *small);
+    }
+    else
+    {
+        Destroy(*big, *small, bodies);
     }
 }
+
 
 
 void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, Dynamic_array<CelestialBody*>& bodies)
@@ -169,7 +135,7 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
     B.Vel = Vector3Add(B.Vel, Vector3Scale(direction, -separation_speed));
 
     int meteor_count = static_cast<int>(mass_loss / 5.0f);
-    if (meteor_count > 30) meteor_count = 30;
+    if (meteor_count > 10) meteor_count = 10;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -203,7 +169,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
 
     float total_mass = A.Mass + B.Mass;
     int dust_count = static_cast<int>(total_mass / 5.0f);
-    if (dust_count > 30) dust_count = 30;
+    if (dust_count > 15) dust_count = 15;
 
     for (int i = 0; i < dust_count; i++)
     {

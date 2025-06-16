@@ -31,7 +31,7 @@ void Moon::Draw_Body() const {
             MatrixRotate(Rotation_Axis, Rotation * DEG2RAD),
             MatrixTranslate(Pos.x, Pos.y, Pos.z)
         );
-        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { 1.0f, 1.0f, 1.0f }, WHITE);
+        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { Radius, Radius, Radius }, WHITE);
     }
     else {
         DrawSphere(Pos, Radius, Body_Color);

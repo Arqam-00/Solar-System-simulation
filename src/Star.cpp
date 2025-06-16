@@ -2,7 +2,7 @@
 
 Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color)
     : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(10), temperature(1000)
-    , Shine_Shader(LoadShader(0, "assets/star.fs"))
+    , Shine_Shader(LoadShader(0, "assets/Star.fs"))
     , centerLoc(GetShaderLocation(Shine_Shader, "center"))
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
@@ -12,7 +12,7 @@ Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color)
     ,Rotation_Vel(20.0f){}
 Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, float light, float heat)
     : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(light), temperature(heat)
-    , Shine_Shader(LoadShader(0, "assets/star.fs"))
+    , Shine_Shader(LoadShader(0, "assets/Star.fs"))
     , centerLoc(GetShaderLocation(Shine_Shader, "center"))
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
@@ -22,7 +22,7 @@ Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, flo
     , Rotation_Vel(20.0f){}
 Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color,Vector3 rot_axis,float rot_vel)
     : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(10), temperature(1000)
-    , Shine_Shader(LoadShader(0, "assets/star.fs"))
+    , Shine_Shader(LoadShader(0, "assets/Star.fs"))
     , centerLoc(GetShaderLocation(Shine_Shader, "center"))
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
@@ -33,7 +33,7 @@ Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color,Vect
 }
 Star::Star(String name, Vector3 p, Vector3 v, float m, float r, Color color, float light, float heat, Vector3 rot_axis, float rot_vel)
     : CelestialBody(name, p, v, m, r, color), Intensity_Of_Light(light), temperature(heat)
-    , Shine_Shader(LoadShader(0, "assets/star.fs"))
+    , Shine_Shader(LoadShader(0, "assets/Star.fs"))
     , centerLoc(GetShaderLocation(Shine_Shader, "center"))
     , resolutionLoc(GetShaderLocation(Shine_Shader, "resolution"))
     , colorLoc(GetShaderLocation(Shine_Shader, "starColor"))
@@ -131,7 +131,7 @@ void Star::Draw_Body() const {
             MatrixRotate(Rotation_Axis, Rotation * DEG2RAD),
             MatrixTranslate(Pos.x, Pos.y, Pos.z)
         );
-        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { 1.0f, 1.0f, 1.0f }, WHITE);
+        DrawModelEx(SphereModel, Pos, Rotation_Axis, Rotation, { Radius, Radius, Radius }, WHITE);
     }
     else {
         DrawSphere(Pos, Radius, Body_Color);

@@ -62,7 +62,7 @@ void CelestialBody::Compute_Gravity_From(const CelestialBody& Other) {
 }
 void CelestialBody::Apply_Texture(Texture2D& texture) {
     if (!Textured) {
-        Mesh sphereMesh = GenMeshSphere(Radius, 64, 64);
+        Mesh sphereMesh = GenMeshSphere(1.0f, 64, 64);
         SphereModel = LoadModelFromMesh(sphereMesh);
         SphereModel.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
         UploadMesh(&sphereMesh, true);

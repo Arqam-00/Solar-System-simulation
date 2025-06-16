@@ -214,7 +214,7 @@ public:
 	}
 	void reverse()                       // Reverses the array elements
 	{
-		T temp = data[0];
+		T* temp = data[0];
 		for (int i = 0; i < len / 2; i++) {
 			temp = data[i];
 			data[i] = data[len - 1 - i];

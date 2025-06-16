@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /TC")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(external/raylib)
@@ -34,3 +33,10 @@ elseif(APPLE)
 elseif(UNIX)
     target_link_libraries(SpaceSimulation PRIVATE m pthread dl GL X11)
 endif()
+
+set(ASSETS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/assets)
+add_custom_command(TARGET SpaceSimulation POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${ASSETS_SOURCE_DIR}
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIG>/assets
+)
