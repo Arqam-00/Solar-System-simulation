@@ -171,7 +171,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
 
     float total_mass = A.Mass + B.Mass;
     int dust_count = static_cast<int>(total_mass / 5.0f);
-    if (dust_count > 15) dust_count = 15;
+    if (dust_count > Max_Dust) dust_count = Max_Dust;
 
     for (int i = 0; i < dust_count; i++)
     {
@@ -184,7 +184,9 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
     }
     int meteor_count = static_cast<int>(total_mass / 0.5f);
     if (meteor_count > Meteor_limit) meteor_count = Meteor_limit;
-
+    if (total_mass > 100) {
+        total_mass = 100;
+    }
     for (int i = 0; i < meteor_count; i++)
     {
         Vector3 rand_dir = { GetRandomValue(-10, 10), GetRandomValue(-10, 10), GetRandomValue(-10, 10) };

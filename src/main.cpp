@@ -118,7 +118,7 @@ int main()
         Flatten_Star(Stars[i], All_Bodies);
     }
     
-    All_Bodies.push(new CelestialBody("Asteroid1", { 0, 1000, 0 }, { 0, -50, 0 }, 10, 1, DARKGRAY));
+    All_Bodies.push(new CelestialBody("Destroyer", { 0, 1000, 0 }, { 0, -100, 0 }, 100, 1, DARKGRAY));
     All_Bodies.push(new CelestialBody("Asteroid2", { 220, 60, 0 }, { -3, 7.2f, 0 }, 5, 0.8f, LIGHTGRAY));
     All_Bodies.push(new CelestialBody("Comet1", { 300, -150, 0 }, { 2.5f, 5.8f, 0 }, 20, 1.5f, WHITE));
     All_Bodies.push(new CelestialBody("Comet2", { -400, 100, 0 }, { 2.0f, 4.5f, 0 }, 25, 2, WHITE));

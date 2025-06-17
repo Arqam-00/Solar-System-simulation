@@ -15,12 +15,7 @@ void Dust::Update_Position(float Delta_Time)  {
 
     Vel = Vector3Add(Vel, Vector3Scale(Acc, Delta_Time));
     Pos = Vector3Add(Pos, Vector3Scale(Vel, Delta_Time));
-
-    Radius = Lerp(Radius, Radius, 0.02f);
-    DeformationAmount *= 0.98f;
-
-    float rippleEffect = sin(GetTime() * 5.0f) * DeformationAmount * 0.5f;
-    Radius += rippleEffect;
+    
 
     Trail.push(Pos);
     if (Trail.size() > Max_Trail_Length) {
