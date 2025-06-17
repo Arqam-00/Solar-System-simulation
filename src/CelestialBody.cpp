@@ -1,4 +1,5 @@
 #include "CelestialBody.h"
+#include "logger.h"
 
 bool CelestialBody::CheckDelete() {
     return Mass <= 0.0f;

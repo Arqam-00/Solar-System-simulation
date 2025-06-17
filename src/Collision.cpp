@@ -57,8 +57,8 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
 
 void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, Dynamic_array<CelestialBody*>& bodies)
 {
-    cout << "Merge" <<A.Name.C_Str()<< endl;
-
+    String msg =B.Name+ "Merges with" + A.Name;
+    A.log.writeMessage(msg);
     float absorbed_mass = B.Get_Mass() * merge_fraction;
     float total_mass = A.Get_Mass() + absorbed_mass;
 
@@ -95,7 +95,6 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
             bodies.push(new Meteor("Meteor", spawn_pos, spawn_vel, (A.Get_Mass() ) / (meteor_count * 100), 1.5f, LIGHTGRAY));
         }
     }
-    cout << ":::::::::::" << B.Name.C_Str() << endl;
 
 }
 
@@ -103,7 +102,8 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
 {
     cout << "Partial merge" << endl;
     cout << A.Name.C_Str()<<":::::::::::" << B.Name.C_Str() << endl;
-
+    String msg = B.Name + "Partial Merges with" + A.Name;
+    A.log.writeMessage(msg);
     if (B.Get_Mass() > A.Get_Mass()) {
         swap(A, B);
     }
@@ -134,8 +134,8 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
     A.Vel = Vector3Add(A.Vel, Vector3Scale(direction, separation_speed));
     B.Vel = Vector3Add(B.Vel, Vector3Scale(direction, -separation_speed));
 
-    int meteor_count = static_cast<int>(mass_loss / 5.0f);
-    if (meteor_count > 10) meteor_count = 10;
+    int meteor_count = static_cast<int>(mass_loss / 50.0f);
+    if (meteor_count > 20) meteor_count = 20;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -150,6 +150,8 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
 
 void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
+    String msg = B.Name + "destroyes itself and" + A.Name;
+    A.log.writeMessage(msg);
     cout << "Destroy" << endl;
     cout << A.Name.C_Str() << ":::::::::::" << B.Name.C_Str() << endl;
 
@@ -181,7 +183,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
         bodies.push(new Dust("Dust", spawn_pos, spawn_vel, 0.5f, 0.5f, LIGHTGRAY));
     }
     int meteor_count = static_cast<int>(total_mass / 0.5f);
-    if (meteor_count > 10) meteor_count = 10;
+    if (meteor_count > 50) meteor_count = 50;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -196,7 +198,8 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
 void Collision::Semi_Elastic(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies)
 {
     cout << "Semi-Elastic" << endl;
-
+    String msg = B.Name + "Collides semi elastically with" + A.Name;
+    A.log.writeMessage(msg);
     float mass_loss_A = A.Get_Mass() * 0.01f;
     float mass_loss_B = B.Get_Mass() * 0.01f;
     float total_mass_loss = mass_loss_A + mass_loss_B;
@@ -224,7 +227,7 @@ void Collision::Semi_Elastic(CelestialBody& A, CelestialBody& B, Dynamic_array<C
     B.Vel = Vector3Subtract(B.Get_Velocity(), Vector3Scale(impulse, 1 / B.Get_Mass()));
 
     int meteor_count = static_cast<int>(total_mass_loss / 2.0f);
-    if (meteor_count > 10) meteor_count = 10;
+    if (meteor_count > 50) meteor_count = 50;
 
     float meteor_mass = total_mass_loss / meteor_count;
 
@@ -240,7 +243,8 @@ void Collision::Semi_Elastic(CelestialBody& A, CelestialBody& B, Dynamic_array<C
 void Collision::Glancing(CelestialBody& A, CelestialBody& B)
 {
     cout << "Glancing" << endl;
-
+    String msg = B.Name + "Glances" + A.Name;
+    A.log.writeMessage(msg);
     Vector3 collision_axis = Vector3Normalize(Vector3Subtract(B.Get_Position(), A.Get_Position()));
     Vector3 relative = Vector3Subtract(A.Get_Velocity(), B.Get_Velocity());
     float velAlongNormal = Vector3DotProduct(relative, collision_axis);

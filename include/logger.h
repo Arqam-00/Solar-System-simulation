@@ -1,6 +1,9 @@
+#ifndef LOGGER_H
+#define LOGGER_H
+
 #include <iostream>
 #include <fstream>
-#include "Mystring.h"
+#include "MyString.h"
 #include<ctime>
 using namespace std;
 
@@ -12,15 +15,10 @@ public:
     }
 
     void initialize(const String& filename_) {
-        if (!initialized) {
-            filename = filename_;
-            file.open(filename_.C_Str(), ios::app);
-            if (!file.is_open()) {
-                cout << "file not found!\n";
-            }
-            else {
-                initialized = true;
-            }
+        filename = filename_;
+        file.open(filename_.C_Str(), ios::app);
+        if (!file.is_open()) {
+            cout << "file not found!\n";
         }
     }
 
@@ -32,7 +30,7 @@ public:
     }
 
     void writeError(const String& error_message) {
-        file << " [Error]   "<< error_message.C_Str();
+        file <<"[Error]"<< error_message.C_Str();
         time_t now = time(0);
         char ttt[30];
         errno_t err = ctime_s(ttt, sizeof(ttt), &now);
@@ -47,14 +45,9 @@ public:
     }
 
 private:
-    bool initialized = false;
     Logger() {}
-    ~Logger() {
-        if (file.is_open()) {
-            file.close();
-        }
-    }
+    ~Logger() {}
     fstream file;
     String filename;
 };
-
+#endif

@@ -31,8 +31,12 @@ void Flatten_Star(Star* star, Dynamic_array<CelestialBody*>& flat)
 
 }
 
+
+
 int main()
 {
+    Logger& log = Logger::getInstance();
+    log.initialize("log.txt");
 
     const int screenWidth = 1200;
     const int screenHeight = 800;
@@ -46,9 +50,9 @@ int main()
     Dynamic_array<Star*> Stars;
     Dynamic_array<CelestialBody*> All_Bodies;
     cout << "no issue 0\n\n\n\n\n";
-    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 10000, 45, YELLOW);
-    //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
-    //Stars.push(sun2);
+    Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 120000, 45, YELLOW);
+    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 2 }, 100000, 50, YELLOW);
+    Stars.push(sun2);
 
     Stars.push(sun);
     Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY);
@@ -141,7 +145,7 @@ int main()
     ,LoadTexture("assets/Moon.png"),
      LoadTexture("assets/Sun.png")
     };
-    Stars[0]->Apply_Texture(texture[0]);
+    sun->Apply_Texture(texture[0]);
     mercury->Apply_Texture(texture[1]);
     venus->Apply_Texture(texture[2]);
     earth->Apply_Texture(texture[3]);
@@ -151,7 +155,7 @@ int main()
     uranus->Apply_Texture(texture[7]);
     neptune->Apply_Texture(texture[8]);
     moon->Apply_Texture(texture[9]);
-
+    sun2->Apply_Texture(texture[10]);
     while (!WindowShouldClose())
     {
 

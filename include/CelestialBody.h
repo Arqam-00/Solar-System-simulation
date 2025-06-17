@@ -7,7 +7,7 @@
 #include "math.h"
 #include "Dynamic_array.h"
 #include "MyString.h"
-
+#include "logger.h"
 
 class CelestialBody {
 protected:
@@ -25,6 +25,8 @@ protected:
     bool Textured;
     Model SphereModel;
 public:
+    Logger& log = Logger::getInstance();
+
     friend class Collision;
     virtual bool CheckDelete();
     CelestialBody();
