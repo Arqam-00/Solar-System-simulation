@@ -160,8 +160,8 @@ void Star::Shine_Draw(Camera3D camera, int screenWidth, int screenHeight)
 
     Vector2 resolution = { (float)screenWidth, (float)screenHeight };
 
-    float starRadius = Radius * 0.8f;
-    float glowStrength = Radius * 2.0f;
+    float starRadius = Radius * 1.0f;
+    float glowStrength = Radius * 1.0f;
 
     Vector4 normalized = ColorNormalize(Body_Color);
     Vector3 color = { normalized.x, normalized.y, normalized.z };
