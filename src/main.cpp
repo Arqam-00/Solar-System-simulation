@@ -55,7 +55,7 @@ int main()
     Stars.push(sun2);
 
     Stars.push(sun);
-    Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY);
+    Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY,"Super hot",0,{1,0,0},50);
     Planet* venus = new Planet("Venus", { 90, 0, 0 }, { 0, 10.5f, 0 }, 80, 5, ORANGE,"Red_Planet",0);
     Planet* earth = new Planet("Earth", { 160, 0, 0 }, { 0, 7.3f, 0 }, 100, 5.5f, BLUE,"Greenery",1);
     Planet* mars = new Planet("Mars", { 205, 0, 0 }, { 0, 6.9f, 0 }, 70, 4, RED,"Possibilyty of water",0);

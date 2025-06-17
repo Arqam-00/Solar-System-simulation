@@ -26,6 +26,8 @@ CelestialBody::CelestialBody(String n, Vector3 Pos, Vector3 Vel, const float Mas
     , Acc({ 0.0f, 0.0f, 0.0f })
     ,Textured ( false)
     ,SphereModel(){
+    String msg = Name + "is created with mass " + String(Mass)+ "and Radius" +String(Radius);
+    log.writeMessage(msg);
 }
 
 CelestialBody& CelestialBody::operator=(const CelestialBody& other) {
