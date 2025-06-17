@@ -67,7 +67,7 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
 
         if (kinetic_energy < 0.3f * binding_energy || B.Get_Mass()>A.Get_Mass() * 10)
         {
-            Merge(A, B, 1.0f, bodies);
+            Merge(B, A, 1.0f, bodies);
         }
         else if (kinetic_energy < 0.7f * binding_energy || B.Get_Mass() < A.Get_Mass() * 2)
         {
@@ -168,8 +168,8 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
     A.Vel = Vector3Add(A.Vel, Vector3Scale(direction, separation_speed));
     B.Vel = Vector3Add(B.Vel, Vector3Scale(direction, -separation_speed));
 
-    int meteor_count = static_cast<int>(mass_loss / 5.0f);
-    if (meteor_count > 30) meteor_count = 30;
+    int meteor_count = static_cast<int>(mass_loss / 50.0f);
+    //if (meteor_count > 30) meteor_count = 30;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -214,8 +214,8 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
 
         bodies.push(new Dust("Dust", spawn_pos, spawn_vel, 0.5f, 0.5f, LIGHTGRAY));
     }
-    int meteor_count = static_cast<int>(total_mass / 0.5f);
-    if (meteor_count > 10) meteor_count = 10;
+    int meteor_count = static_cast<int>(total_mass / 50.5f);
+    //if (meteor_count > 30) meteor_count = 30;
 
     for (int i = 0; i < meteor_count; i++)
     {

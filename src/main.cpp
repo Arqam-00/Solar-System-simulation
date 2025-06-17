@@ -215,6 +215,7 @@ int main()
 
             if (IsKeyDown(KEY_F)) 
             {
+                DrawText("|]>> |]>>", 40, 40, 80, RED);
                 Delta_Time *= 10;
             }
             
@@ -253,7 +254,7 @@ int main()
             HoveredBody->Draw_Info_Box();
         }
         if (Paused) {
-            DrawText("| |", 400, 300, 120, RED);
+            DrawText("| |", 20, 20, 120, RED);
 
         }
         if (My_Camera.Is_Showing_Names())
@@ -274,7 +275,9 @@ int main()
     }
     All_Bodies.clear();
     
-
+    for (int i = 0; i < 11; i++) {
+        UnloadTexture(texture[i]);
+    }
 
     CloseWindow();
     return 0;

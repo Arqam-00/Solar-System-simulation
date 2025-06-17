@@ -47,9 +47,9 @@ int main()
 	Dynamic_array<CelestialBody*> Free_Bodies;
 	Dynamic_array<CelestialBody*> All_Bodies;
 
-	Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 10000, 45, YELLOW);
-	//Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 0 }, 100000, 50, YELLOW);
-	//Stars.push(sun2);
+	Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 100000, 45, YELLOW);
+	Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -2, 3 }, 100000, 50, YELLOW);
+	Stars.push(sun2);
 
 	Stars.push(sun);
 
@@ -109,7 +109,7 @@ int main()
 	Moon* triton = new Moon("Triton", { 510, 18, 0 }, { 0, 4.0f, 0 }, 4, 1.2f, WHITE);
 	neptune->Place_Moon_In_Orbit(triton, 2.5);
 
-	saturn->Add_Ring(30);
+	saturn->Add_Ring(100);
 	sun->Add_Asteroid_Belt(30, 230, 290, Free_Bodies);
 
 	for (int i = 0; i < Stars.size(); i++)
@@ -144,7 +144,7 @@ int main()
 	,LoadTexture("Textures&shaders/Moon.png"),
 	 LoadTexture("Textures&shaders/Sun.png")
 	};
-	Stars[0]->Apply_Texture(texture[0]);
+	sun->Apply_Texture(texture[0]);
 	mercury->Apply_Texture(texture[1]);
 	venus->Apply_Texture(texture[2]);
 	earth->Apply_Texture(texture[3]);
@@ -154,6 +154,8 @@ int main()
 	uranus->Apply_Texture(texture[7]);
 	neptune->Apply_Texture(texture[8]);
 	moon->Apply_Texture(texture[9]);
+	sun2->Apply_Texture(texture[10]);
+
 
 	while (!WindowShouldClose())
 	{
