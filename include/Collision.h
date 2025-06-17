@@ -10,6 +10,7 @@ public:
     void Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies);
 
 private:
+    int Meteor_limit = 10;
     void Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, Dynamic_array<CelestialBody*>& bodies);
     void Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies);
     void Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<CelestialBody*>& bodies);

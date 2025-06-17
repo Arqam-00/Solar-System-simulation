@@ -12,7 +12,7 @@
 #include "Camera_Control.h"
 #include "Collision.h"
 #include "logger.h"
-
+//A small meateor from above is gonna destroy  SUN
 
 using namespace std;
 
@@ -49,10 +49,9 @@ int main()
 
     Dynamic_array<Star*> Stars;
     Dynamic_array<CelestialBody*> All_Bodies;
-    cout << "no issue 0\n\n\n\n\n";
     Star* sun = new Star("Sun", { 0, 0, 0 }, { 0, 0, 0 }, 120000, 45, YELLOW);
-    Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 2 }, 100000, 50, YELLOW);
-    Stars.push(sun2);
+    //Star* sun2 = new Star("Sun2", { 300, 100, -220 }, { -5, -3, 2 }, 100000, 50, YELLOW);
+    //Stars.push(sun2);
 
     Stars.push(sun);
     Planet* mercury = new Planet("Mercury", { 60, 0, 0 }, { 0, 12, 0 }, 15, 3, GRAY,"Super hot",0,{1,0,0},50);
@@ -60,7 +59,7 @@ int main()
     Planet* earth = new Planet("Earth", { 160, 0, 0 }, { 0, 7.3f, 0 }, 100, 5.5f, BLUE,"Greenery",1);
     Planet* mars = new Planet("Mars", { 205, 0, 0 }, { 0, 6.9f, 0 }, 70, 4, RED,"Possibilyty of water",0);
 
-     Planet* jupiter = new Planet("Jupiter", { 250, 0, 0 }, { 0, 6.0f, 0 }, 800, 8, BROWN,"Gas Giant",0);
+    Planet* jupiter = new Planet("Jupiter", { 250, 0, 0 }, { 0, 6.0f, 0 }, 800, 8, BROWN, "Gas Giant", 0, {0,0,1},10);
     Planet* saturn = new Planet("Saturn", { -320, 0, 0 }, { 0, 5.3f, 0 }, 600, 7, BEIGE);
     Planet* uranus = new Planet("Uranus", { 400, 0, 0 }, { 0, 4.7f, 0 }, 400, 4, SKYBLUE);
     Planet* neptune = new Planet("Neptune", { 500, 0, 0 }, { 0, 4.0f, 0 }, 350, 6, DARKBLUE);
@@ -119,7 +118,7 @@ int main()
         Flatten_Star(Stars[i], All_Bodies);
     }
     
-    All_Bodies.push(new CelestialBody("Asteroid1", { 180, -50, 0 }, { 3, 7.5f, 0 }, 10, 1, DARKGRAY));
+    All_Bodies.push(new CelestialBody("Asteroid1", { 0, 1000, 0 }, { 0, -50, 0 }, 10, 1, DARKGRAY));
     All_Bodies.push(new CelestialBody("Asteroid2", { 220, 60, 0 }, { -3, 7.2f, 0 }, 5, 0.8f, LIGHTGRAY));
     All_Bodies.push(new CelestialBody("Comet1", { 300, -150, 0 }, { 2.5f, 5.8f, 0 }, 20, 1.5f, WHITE));
     All_Bodies.push(new CelestialBody("Comet2", { -400, 100, 0 }, { 2.0f, 4.5f, 0 }, 25, 2, WHITE));
@@ -155,7 +154,7 @@ int main()
     uranus->Apply_Texture(texture[7]);
     neptune->Apply_Texture(texture[8]);
     moon->Apply_Texture(texture[9]);
-    sun2->Apply_Texture(texture[10]);
+    //sun2->Apply_Texture(texture[10]);
     while (!WindowShouldClose())
     {
 

@@ -31,11 +31,11 @@ void Collision::Handle_Collision(CelestialBody& A, CelestialBody& B, Dynamic_arr
     big->Apply_Collision_Deformation(kinetic_energy);
     small->Apply_Collision_Deformation(kinetic_energy);
 
-    if (kinetic_energy < 0.3f * binding_energy || big->Get_Mass() > small->Get_Mass() * 10)
+    if (kinetic_energy < 0.3f * binding_energy && big->Get_Mass() > small->Get_Mass() * 10)
     {
         Merge(*big, *small, 1.0f, bodies);
     }
-    else if (kinetic_energy < 0.7f * binding_energy || big->Get_Mass() < small->Get_Mass() * 2)
+    else if (kinetic_energy < 0.7f * binding_energy && big->Get_Mass() < small->Get_Mass() * 2)
     {
         Partial_Merge(*big, *small, bodies);
     }
@@ -83,7 +83,7 @@ void Collision::Merge(CelestialBody& A, CelestialBody& B, float merge_fraction, 
     }
     if (A.Get_Mass() < B.Get_Mass()*10) {
         int meteor_count = static_cast<int>((A.Get_Mass()) / 5.0f);
-        if (meteor_count > 10) meteor_count = 10;
+        if (meteor_count > Meteor_limit) meteor_count = Meteor_limit;
 
         for (int i = 0; i < meteor_count; i++)
         {
@@ -135,7 +135,7 @@ void Collision::Partial_Merge(CelestialBody& A, CelestialBody& B, Dynamic_array<
     B.Vel = Vector3Add(B.Vel, Vector3Scale(direction, -separation_speed));
 
     int meteor_count = static_cast<int>(mass_loss / 50.0f);
-    if (meteor_count > 20) meteor_count = 20;
+    if (meteor_count > Meteor_limit) meteor_count = Meteor_limit;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -183,7 +183,7 @@ void Collision::Destroy(CelestialBody& A, CelestialBody& B, Dynamic_array<Celest
         bodies.push(new Dust("Dust", spawn_pos, spawn_vel, 0.5f, 0.5f, LIGHTGRAY));
     }
     int meteor_count = static_cast<int>(total_mass / 0.5f);
-    if (meteor_count > 50) meteor_count = 50;
+    if (meteor_count > Meteor_limit) meteor_count = Meteor_limit;
 
     for (int i = 0; i < meteor_count; i++)
     {
@@ -227,7 +227,7 @@ void Collision::Semi_Elastic(CelestialBody& A, CelestialBody& B, Dynamic_array<C
     B.Vel = Vector3Subtract(B.Get_Velocity(), Vector3Scale(impulse, 1 / B.Get_Mass()));
 
     int meteor_count = static_cast<int>(total_mass_loss / 2.0f);
-    if (meteor_count > 50) meteor_count = 50;
+    if (meteor_count > Meteor_limit) meteor_count = Meteor_limit;
 
     float meteor_mass = total_mass_loss / meteor_count;
 

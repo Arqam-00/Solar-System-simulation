@@ -135,7 +135,7 @@ void Planet::Add_Ring(int num) {
     for (int i = 0; i < num; i++) {
         Moon* m = new Moon("RingParticle", { 0,0,0 }, { 0,0,0 }, 0.01f, 0.5f, LIGHTGRAY);
         m->Toggle_Trail();
-        ring_dis = GetRandomValue(3.0f, 3.8f);
+        ring_dis = GetRandomValue(300.0f, 380.0f)/100;
         this->Place_Moon_In_Orbit(m, 3.5);
     }
 }
