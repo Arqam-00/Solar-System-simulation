@@ -11,7 +11,7 @@
 #include "Dust.h"
 #include "Camera_Control.h"
 #include "Collision.h"
-
+#include "logger.h"
 
 
 using namespace std;

@@ -88,7 +88,7 @@ void CelestialBody::Update_Position(float Delta_Time) {
 
 void CelestialBody::Apply_Collision_Deformation(float impactEnergy)
 {
-    float DeformationAmount = impactEnergy * 0.0000002f;
+    float DeformationAmount = impactEnergy * 0.00002f;
     if (DeformationAmount > 1.0f)
         DeformationAmount = 1.0f;
 

@@ -40,4 +40,7 @@
       <UniqueIdentifier>{DDAB0DBE-E391-32E8-A08E-6C37E826E49D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="log.txt" />
+  </ItemGroup>
 </Project>
